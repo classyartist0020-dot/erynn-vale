@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Erynn Vale — Shoot</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;}
@@ -16,93 +18,65 @@ html{-webkit-text-size-adjust:100%;}
   --b:rgba(255,255,255,.07);--bG:rgba(200,167,107,.22);
 }
 body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;cursor:none;}
-
-/* cursor */
 .cur{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
 .cur-r{position:fixed;width:32px;height:32px;border:1px solid rgba(200,167,107,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease;}
 .cur-r.hov{width:46px;height:46px;border-color:rgba(200,167,107,.9);}
 @media(hover:none){.cur,.cur-r{display:none;}body{cursor:auto;}}
-
-/* nav */
 #nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 36px;height:60px;background:rgba(9,8,13,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--b);}
 .n-logo{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.3em;color:var(--w);text-decoration:none;}
 .n-logo span{color:var(--gold);}
 .n-back{display:flex;align-items:center;gap:8px;color:var(--mu);text-decoration:none;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;transition:color .3s;cursor:pointer;background:none;border:none;}
 .n-back:hover{color:var(--gold);}
 .n-back svg{width:14px;height:14px;}
-
-/* main layout */
 main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:100vh;}
 @media(max-width:900px){main{grid-template-columns:1fr;}}
-
-/* ── LEFT: carousel ── */
 #carousel-side{position:sticky;top:60px;height:calc(100vh - 60px);background:#000;display:flex;flex-direction:column;overflow:hidden;}
 @media(max-width:900px){#carousel-side{position:relative;top:0;height:70vw;min-height:300px;max-height:500px;}}
-
 #carousel-img-wrap{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0a0f;}
 #carousel-img{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .35s ease;}
 #carousel-img.fade{opacity:0;}
 #carousel-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:absolute;inset:0;}
 #carousel-placeholder .ph-ring{width:60px;height:60px;border-radius:50%;border:1px solid rgba(200,167,107,.2);}
 #carousel-placeholder .ph-txt{font-size:.6rem;letter-spacing:.3em;color:var(--mu);text-transform:uppercase;}
-
-/* arrows */
 .c-arr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(9,8,13,.65);border:1px solid rgba(255,255,255,.1);border-radius:50%;color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;z-index:10;backdrop-filter:blur(8px);}
 .c-arr:hover{background:rgba(200,167,107,.15);border-color:rgba(200,167,107,.4);}
 .c-arr.left{left:16px;}
 .c-arr.right{right:16px;}
-
-/* counter + dots */
 #c-counter{position:absolute;top:14px;right:16px;font-size:.6rem;letter-spacing:.15em;color:rgba(255,255,255,.45);background:rgba(9,8,13,.5);padding:4px 10px;border-radius:20px;backdrop-filter:blur(8px);}
 #c-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5;}
 .c-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .25s;border:none;padding:0;}
 .c-dot.on{background:var(--gold);width:18px;border-radius:3px;}
-
-/* thumbnails strip */
 #thumbs{display:flex;gap:6px;padding:10px;background:var(--void);overflow-x:auto;scrollbar-width:none;flex-shrink:0;}
 #thumbs::-webkit-scrollbar{display:none;}
 .thumb{width:52px;height:52px;border-radius:4px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .25s;flex-shrink:0;}
 .thumb.on{border-color:var(--gold);}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .thumb-ph{width:100%;height:100%;background:var(--card);}
-
-/* ── RIGHT: info panel ── */
 #info-side{background:var(--void);border-left:1px solid var(--b);display:flex;flex-direction:column;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--b) transparent;}
-
 .info-inner{padding:28px 24px;flex:1;}
-
-/* shoot title */
 .shoot-eyebrow{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
 .shoot-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;line-height:1.1;margin-bottom:6px;}
 .shoot-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--dim);margin-bottom:20px;}
-
-/* category + meta badges */
 .meta-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
 .meta-pill{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:2px;}
 .pill-cat{background:rgba(200,167,107,.12);border:1px solid rgba(200,167,107,.3);color:var(--gold2);}
 .pill-mood{background:rgba(255,255,255,.05);border:1px solid var(--b);color:var(--mu);}
 .pill-comp{background:rgba(255,255,255,.05);border:1px solid var(--b);color:var(--mu);}
-
-/* impact bar */
 .impact-wrap{margin-bottom:22px;}
 .impact-label{display:flex;justify-content:space-between;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:7px;}
 .impact-bar{height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;}
 .impact-fill{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:2px;transition:width .8s ease;}
-
 .divider{height:1px;background:var(--b);margin:20px 0;}
-
-/* engage */
 .engage-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
 .like-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .3s;}
 .like-btn:hover{border-color:rgba(200,167,107,.4);color:var(--gold);}
 .like-btn.liked{border-color:rgba(200,167,107,.5);color:var(--gold);background:rgba(200,167,107,.07);}
 .like-btn svg{width:14px;height:14px;transition:fill .3s;}
 .like-btn.liked svg{fill:var(--gold);}
+.like-btn:disabled{opacity:.6;cursor:not-allowed;}
 .share-btn{display:flex;align-items:center;gap:7px;background:none;border:1px solid var(--b);color:var(--mu);padding:10px 16px;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .3s;}
 .share-btn:hover{border-color:var(--b);color:var(--w);}
 .share-btn svg{width:13px;height:13px;}
-
-/* comments */
 .comments-title{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mu);margin-bottom:14px;}
 .comment-list{display:flex;flex-direction:column;gap:14px;margin-bottom:20px;}
 .cm{display:flex;gap:10px;}
@@ -111,33 +85,27 @@ main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:10
 .cm-name{font-size:.65rem;color:var(--gold2);letter-spacing:.1em;margin-bottom:4px;}
 .cm-text{font-size:.85rem;color:var(--dim);line-height:1.6;}
 .cm-time{font-size:.6rem;color:var(--mu);margin-top:3px;}
-
-/* comment input */
 .comment-form{border-top:1px solid var(--b);padding-top:16px;}
+.comment-name-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:10px 14px;outline:none;border-radius:2px;transition:border-color .3s;margin-bottom:8px;}
+.comment-name-input:focus{border-color:rgba(200,167,107,.35);}
 .comment-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:12px 14px;resize:none;outline:none;border-radius:2px;transition:border-color .3s;min-height:80px;}
 .comment-input:focus{border-color:rgba(200,167,107,.35);}
 .comment-submit{margin-top:8px;background:var(--gold);color:var(--blk);border:none;padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:background .3s;}
 .comment-submit:hover{background:var(--gold2);}
-
-/* nav arrows between shoots */
+.comment-submit:disabled{opacity:.5;cursor:not-allowed;}
 .shoot-nav{display:flex;gap:0;border-top:1px solid var(--b);margin-top:auto;flex-shrink:0;}
 .shoot-nav-btn{flex:1;padding:16px;background:none;border:none;color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:8px;}
 .shoot-nav-btn:first-child{border-right:1px solid var(--b);justify-content:flex-start;}
 .shoot-nav-btn:last-child{justify-content:flex-end;}
 .shoot-nav-btn:hover{background:rgba(200,167,107,.05);color:var(--gold);}
-
-/* loading state */
 #loading{position:fixed;inset:0;background:var(--blk);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:500;}
 #loading .l-logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.3em;color:var(--w);}
 #loading .l-logo span{color:var(--gold);}
 #loading .l-bar{width:120px;height:1px;background:var(--b);position:relative;overflow:hidden;}
 #loading .l-fill{position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);animation:loadSlide 1.2s ease-in-out infinite;}
 @keyframes loadSlide{0%{left:-100%}100%{left:100%}}
-
-/* toast */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--gold);color:var(--blk);font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;padding:11px 24px;opacity:0;transition:all .4s;z-index:999;pointer-events:none;}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
-
 @media(max-width:900px){
   #nav{padding:0 18px;}
   #info-side{border-left:none;border-top:1px solid var(--b);}
@@ -165,7 +133,6 @@ main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:10
 </nav>
 
 <main>
-  <!-- CAROUSEL SIDE -->
   <div id="carousel-side">
     <div id="carousel-img-wrap">
       <img id="carousel-img" src="" alt="" onerror="this.style.display='none'">
@@ -181,27 +148,19 @@ main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:10
     <div id="thumbs"></div>
   </div>
 
-  <!-- INFO SIDE -->
   <div id="info-side">
     <div class="info-inner">
       <div class="shoot-eyebrow" id="info-eyebrow">Shoot</div>
       <div class="shoot-title" id="info-title">Loading...</div>
       <div class="shoot-subtitle" id="info-subtitle"></div>
-
       <div class="meta-row" id="meta-row"></div>
-
       <div class="impact-wrap">
-        <div class="impact-label">
-          <span>Impact</span>
-          <span id="impact-num">—</span>
-        </div>
+        <div class="impact-label"><span>Impact</span><span id="impact-num">—</span></div>
         <div class="impact-bar"><div class="impact-fill" id="impact-fill" style="width:0%"></div></div>
       </div>
-
       <div class="divider"></div>
-
       <div class="engage-row">
-        <button class="like-btn" id="like-btn" onclick="toggleLike()">
+        <button class="like-btn" id="like-btn" onclick="handleLike()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           <span id="like-count">0</span>
         </button>
@@ -210,18 +169,17 @@ main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:10
           Share
         </button>
       </div>
-
       <div class="divider"></div>
-
       <div class="comments-title">Comments</div>
-      <div class="comment-list" id="comment-list"></div>
-
+      <div class="comment-list" id="comment-list">
+        <div style="color:var(--mu);font-size:.85rem;font-style:italic;">Loading comments...</div>
+      </div>
       <div class="comment-form">
+        <input class="comment-name-input" id="comment-name" type="text" placeholder="Your name">
         <textarea class="comment-input" id="comment-input" placeholder="Leave a comment..." rows="3"></textarea>
-        <button class="comment-submit" onclick="postComment()">Post Comment</button>
+        <button class="comment-submit" id="comment-submit" onclick="postComment()">Post Comment</button>
       </div>
     </div>
-
     <div class="shoot-nav">
       <button class="shoot-nav-btn" onclick="prevShoot()">&#8592; Previous shoot</button>
       <button class="shoot-nav-btn" onclick="nextShoot()">Next shoot &#8594;</button>
@@ -232,293 +190,158 @@ main{padding-top:60px;display:grid;grid-template-columns:1fr 380px;min-height:10
 <div class="toast" id="toast"></div>
 
 <script>
-// ── cursor ──
 const CUR=document.getElementById('cur'),CURR=document.getElementById('cur-r');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;CUR.style.left=mx+'px';CUR.style.top=my+'px';});
 (function t(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;CURR.style.left=rx+'px';CURR.style.top=ry+'px';requestAnimationFrame(t);})();
-document.querySelectorAll('a,button,.thumb,.c-dot').forEach(function(el){
-  el.addEventListener('mouseenter',function(){CURR.classList.add('hov');});
-  el.addEventListener('mouseleave',function(){CURR.classList.remove('hov');});
-});
 
-// ── state ──
-let allData   = null;
-let shootImages = [];
-let shootList   = [];
-let currentShootId = null;
-let currentIdx  = 0;
-let liked       = false;
-let likeCount   = Math.floor(Math.random()*300)+100;
+let shootImages=[], shootList=[], currentShootId=null, currentIdx=0, currentImageId=null;
 
-const fakeComments = [
-  {av:"JL", name:"@jessica.looks",  text:"Absolutely stunning, the lighting is incredible here",   time:"2h ago"},
-  {av:"VB", name:"@vogue.brand",     text:"Reaching out for a campaign inquiry — please check DMs", time:"4h ago"},
-  {av:"MR", name:"@marco_photos",    text:"This shoot is everything. The composition is flawless",  time:"6h ago"},
-];
+function getShootFromURL(){ return new URLSearchParams(window.location.search).get('shoot'); }
 
-// ── get shoot from URL ──
-function getShootFromURL(){
-  const params = new URLSearchParams(window.location.search);
-  return params.get('shoot');
-}
-
-// ── load images.json ──
 async function init(){
+  currentShootId = getShootFromURL();
+  if(!currentShootId){ showError('No shoot specified.'); return; }
   try {
-    const res  = await fetch('./images.json');
-    if(!res.ok) throw new Error('images.json not found');
-    allData = await res.json();
-
-    // collect all images from gallery
-    const allImages = [];
-    const cats = ['fitness','luxury','editorial','travel','baddie'];
-    cats.forEach(function(cat){
-      if(allData.gallery && allData.gallery[cat]){
-        allData.gallery[cat].forEach(function(img){ allImages.push(img); });
-      }
-    });
-
-    // group by shootId
-    const shootMap = {};
-    allImages.forEach(function(img){
-      const sid = img.shootId || img.category+'-general';
-      if(!shootMap[sid]) shootMap[sid] = [];
-      shootMap[sid].push(img);
-    });
-
-    // sort each shoot by impact desc, highest = cover (first)
-    Object.keys(shootMap).forEach(function(sid){
-      shootMap[sid].sort(function(a,b){ return b.impact - a.impact; });
-    });
-
-    shootList = Object.keys(shootMap);
-
-    // get shoot from URL or default to first
-    currentShootId = getShootFromURL() || shootList[0];
-    if(!shootMap[currentShootId]) currentShootId = shootList[0];
-
-    shootImages = shootMap[currentShootId] || [];
-
+    const db = window.erynnDB.db;
+    const { data:images, error } = await db.from('images').select('*').eq('shoot_id',currentShootId).order('impact',{ascending:false});
+    if(error||!images||images.length===0){ showError('Shoot not found.'); return; }
+    shootImages = images;
+    const { data:allShoots } = await db.from('shoots').select('id').order('created_at',{ascending:true});
+    shootList = (allShoots||[]).map(function(s){ return s.id; });
     renderShoot();
-    document.getElementById('loading').style.display = 'none';
-
-  } catch(e){
-    console.error(e);
-    // no images.json — show demo mode
-    document.getElementById('ph-txt').textContent = 'images.json not found — run npm run sort first';
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('info-title').textContent = 'Demo Mode';
-    document.getElementById('info-subtitle').textContent = 'Run sort.js to load real images';
-  }
+    document.getElementById('loading').style.display='none';
+  } catch(e){ console.error(e); showError('Failed to load shoot.'); }
 }
 
-// ── render current shoot ──
+function showError(msg){
+  document.getElementById('ph-txt').textContent=msg;
+  document.getElementById('loading').style.display='none';
+  document.getElementById('info-title').textContent=msg;
+}
+
 function renderShoot(){
-  if(!shootImages.length) return;
-  currentIdx = 0;
-  renderImage();
-  renderInfo();
-  renderDots();
-  renderThumbs();
-  renderComments();
-  document.getElementById('like-count').textContent = likeCount;
-  // animate impact bar
-  setTimeout(function(){
-    const impact = shootImages[0].impact || 7;
-    document.getElementById('impact-fill').style.width = (impact*10)+'%';
-  }, 300);
+  currentIdx=0;
+  currentImageId=shootImages[0]?shootImages[0].id:null;
+  renderImage(); renderInfo(); renderDots(); renderThumbs(); loadLikes(); loadComments();
+  document.querySelectorAll('a,button,.thumb,.c-dot').forEach(function(el){
+    el.addEventListener('mouseenter',function(){CURR.classList.add('hov');});
+    el.addEventListener('mouseleave',function(){CURR.classList.remove('hov');});
+  });
 }
 
-// ── render current image ──
 function renderImage(){
-  const img = shootImages[currentIdx];
-  if(!img) return;
-  const el = document.getElementById('carousel-img');
-  const ph = document.getElementById('carousel-placeholder');
+  const img=shootImages[currentIdx]; if(!img) return;
+  currentImageId=img.id;
+  const el=document.getElementById('carousel-img'), ph=document.getElementById('carousel-placeholder');
   el.classList.add('fade');
   setTimeout(function(){
-    if(img.url){
-      el.src = img.url;
-      el.style.display = 'block';
-      ph.style.display = 'none';
-    } else {
-      el.style.display = 'none';
-      ph.style.display = 'flex';
-      document.getElementById('ph-txt').textContent = img.filename || 'Image';
-    }
+    if(img.url){ el.src=img.url; el.alt=img.title||''; el.style.display='block'; ph.style.display='none'; }
+    else { el.style.display='none'; ph.style.display='flex'; document.getElementById('ph-txt').textContent=img.filename||'Image'; }
     el.classList.remove('fade');
-  }, 180);
-  document.getElementById('c-counter').textContent = (currentIdx+1)+' / '+shootImages.length;
-  // update impact bar for current image
-  const impact = img.impact || 7;
-  document.getElementById('impact-fill').style.width = (impact*10)+'%';
-  document.getElementById('impact-num').textContent = impact+'/10';
-  // highlight active thumb
-  document.querySelectorAll('.thumb').forEach(function(t,i){
-    t.classList.toggle('on', i===currentIdx);
-  });
-  renderDots();
+  },180);
+  document.getElementById('c-counter').textContent=(currentIdx+1)+' / '+shootImages.length;
+  const impact=img.impact||7;
+  document.getElementById('impact-fill').style.width=(impact*10)+'%';
+  document.getElementById('impact-num').textContent=impact+'/10';
+  document.querySelectorAll('.thumb').forEach(function(t,i){ t.classList.toggle('on',i===currentIdx); });
+  renderDots(); loadLikes(); loadComments();
 }
 
-// ── render info panel ──
 function renderInfo(){
-  const shoot = shootImages[0];
-  if(!shoot) return;
-  const sid = currentShootId.replace(/-/g,' ');
-  document.getElementById('info-eyebrow').textContent = shoot.category.toUpperCase()+' — '+shootImages.length+' image'+(shootImages.length!==1?'s':'');
-  document.getElementById('info-title').textContent = shoot.title || sid;
-  document.getElementById('info-subtitle').textContent = formatShootId(currentShootId);
-  document.getElementById('impact-num').textContent = (shoot.impact||7)+'/10';
-
-  const row = document.getElementById('meta-row');
-  row.innerHTML =
-    '<span class="meta-pill pill-cat">'+shoot.category+'</span>'+
-    '<span class="meta-pill pill-mood">'+shoot.mood+'</span>'+
-    '<span class="meta-pill pill-comp">'+shoot.composition+'</span>'+
-    '<span class="meta-pill pill-mood">'+shoot.orientation+'</span>';
+  const s=shootImages[0]; if(!s) return;
+  document.getElementById('info-eyebrow').textContent=(s.category||'shoot').toUpperCase()+' — '+shootImages.length+' image'+(shootImages.length!==1?'s':'');
+  document.getElementById('info-title').textContent=s.title||formatShootId(currentShootId);
+  document.getElementById('info-subtitle').textContent=formatShootId(currentShootId);
+  document.getElementById('impact-num').textContent=(s.impact||7)+'/10';
+  document.getElementById('meta-row').innerHTML=
+    '<span class="meta-pill pill-cat">'+(s.category||'')+'</span>'+
+    (s.mood?'<span class="meta-pill pill-mood">'+s.mood+'</span>':'')+
+    (s.composition?'<span class="meta-pill pill-comp">'+s.composition+'</span>':'')+
+    (s.orientation?'<span class="meta-pill pill-mood">'+s.orientation+'</span>':'');
 }
 
-function formatShootId(sid){
-  return sid.split('-').map(function(w){ return w.charAt(0).toUpperCase()+w.slice(1); }).join(' ');
-}
+function formatShootId(sid){ if(!sid) return ''; return sid.split('-').map(function(w){ return w.charAt(0).toUpperCase()+w.slice(1); }).join(' '); }
 
-// ── dots ──
 function renderDots(){
-  const wrap = document.getElementById('c-dots');
-  wrap.innerHTML = '';
-  const max = Math.min(shootImages.length, 12);
+  const wrap=document.getElementById('c-dots'); wrap.innerHTML='';
+  const max=Math.min(shootImages.length,12);
   for(let i=0;i<max;i++){
-    const d = document.createElement('button');
-    d.className = 'c-dot'+(i===currentIdx?' on':'');
-    (function(idx){ d.onclick = function(){ currentIdx=idx; renderImage(); }; })(i);
+    const d=document.createElement('button'); d.className='c-dot'+(i===currentIdx?' on':'');
+    (function(idx){ d.onclick=function(){ goToImage(idx); }; })(i);
     wrap.appendChild(d);
   }
 }
 
-// ── thumbnails ──
 function renderThumbs(){
-  const wrap = document.getElementById('thumbs');
-  wrap.innerHTML = '';
-  shootImages.forEach(function(img, i){
-    const t = document.createElement('div');
-    t.className = 'thumb'+(i===0?' on':'');
-    if(img.url){
-      const im = document.createElement('img');
-      im.src = img.url;
-      im.alt = img.title||'';
-      im.loading = 'lazy';
-      t.appendChild(im);
-    } else {
-      const ph = document.createElement('div');
-      ph.className = 'thumb-ph';
-      t.appendChild(ph);
-    }
-    (function(idx){ t.onclick = function(){ currentIdx=idx; renderImage(); }; })(i);
+  const wrap=document.getElementById('thumbs'); wrap.innerHTML='';
+  shootImages.forEach(function(img,i){
+    const t=document.createElement('div'); t.className='thumb'+(i===0?' on':'');
+    if(img.url){ const im=document.createElement('img'); im.src=img.url; im.alt=img.title||''; im.loading='lazy'; t.appendChild(im); }
+    else { const ph=document.createElement('div'); ph.className='thumb-ph'; t.appendChild(ph); }
+    (function(idx){ t.onclick=function(){ goToImage(idx); }; })(i);
     wrap.appendChild(t);
   });
 }
 
-// ── comments ──
-function renderComments(){
-  const list = document.getElementById('comment-list');
-  list.innerHTML = '';
-  fakeComments.forEach(function(c){
-    const div = document.createElement('div');
-    div.className = 'cm';
-    div.innerHTML =
-      '<div class="cm-av">'+c.av+'</div>'+
-      '<div class="cm-body">'+
-        '<div class="cm-name">'+c.name+'</div>'+
-        '<div class="cm-text">'+c.text+'</div>'+
-        '<div class="cm-time">'+c.time+'</div>'+
-      '</div>';
+function goToImage(idx){ currentIdx=idx; renderImage(); }
+function move(dir){ currentIdx=(currentIdx+dir+shootImages.length)%shootImages.length; renderImage(); }
+document.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft')move(-1); if(e.key==='ArrowRight')move(1); if(e.key==='Escape')goBack(); });
+
+async function loadLikes(){
+  if(!currentImageId) return;
+  const [count,liked]=await Promise.all([window.erynnDB.getLikeCount(currentImageId),window.erynnDB.hasLiked(currentImageId)]);
+  document.getElementById('like-count').textContent=count;
+  document.getElementById('like-btn').classList.toggle('liked',liked);
+}
+
+async function handleLike(){
+  if(!currentImageId) return;
+  const btn=document.getElementById('like-btn'); btn.disabled=true;
+  await window.erynnDB.toggleLike(currentImageId);
+  await loadLikes(); btn.disabled=false;
+}
+
+async function loadComments(){
+  if(!currentImageId) return;
+  const list=document.getElementById('comment-list');
+  list.innerHTML='<div style="color:var(--mu);font-size:.85rem;font-style:italic;">Loading...</div>';
+  const comments=await window.erynnDB.getComments(currentImageId);
+  if(!comments||comments.length===0){ list.innerHTML='<div style="color:var(--mu);font-size:.85rem;font-style:italic;">No comments yet. Be first!</div>'; return; }
+  list.innerHTML='';
+  comments.forEach(function(c){
+    const initials=c.name.split(' ').map(function(w){ return w[0]; }).join('').toUpperCase().slice(0,2);
+    const div=document.createElement('div'); div.className='cm';
+    div.innerHTML='<div class="cm-av">'+esc(initials)+'</div><div class="cm-body"><div class="cm-name">'+esc(c.name)+'</div><div class="cm-text">'+esc(c.message)+'</div><div class="cm-time">'+timeAgo(c.created_at)+'</div></div>';
     list.appendChild(div);
   });
 }
 
-// ── carousel nav ──
-function move(dir){
-  currentIdx = (currentIdx + dir + shootImages.length) % shootImages.length;
-  renderImage();
+async function postComment(){
+  const nameEl=document.getElementById('comment-name'),msgEl=document.getElementById('comment-input'),btn=document.getElementById('comment-submit');
+  const name=nameEl.value.trim(), message=msgEl.value.trim();
+  if(!name||!message){ showToast('Please enter your name and comment'); return; }
+  if(!currentImageId) return;
+  btn.disabled=true; btn.textContent='Posting...';
+  try { await window.erynnDB.postComment(currentImageId,name,message); nameEl.value=''; msgEl.value=''; await loadComments(); showToast('Comment posted ✦'); }
+  catch(err){ showToast('Failed to post. Try again.'); console.error(err); }
+  btn.disabled=false; btn.textContent='Post Comment';
 }
 
-// keyboard arrows
-document.addEventListener('keydown', function(e){
-  if(e.key==='ArrowLeft') move(-1);
-  if(e.key==='ArrowRight') move(1);
-  if(e.key==='Escape') goBack();
-});
-
-// ── like ──
-function toggleLike(){
-  liked = !liked;
-  likeCount = liked ? likeCount+1 : likeCount-1;
-  document.getElementById('like-btn').classList.toggle('liked', liked);
-  document.getElementById('like-count').textContent = likeCount;
-}
-
-// ── share ──
 function doShare(){
-  if(navigator.share){
-    navigator.share({ title:'Erynn Vale', url: window.location.href });
-  } else {
-    navigator.clipboard.writeText(window.location.href).then(function(){
-      showToast('Link copied to clipboard');
-    });
-  }
+  if(navigator.share){ navigator.share({title:'Erynn Vale',url:window.location.href}); }
+  else { navigator.clipboard.writeText(window.location.href).then(function(){ showToast('Link copied to clipboard'); }); }
 }
 
-// ── post comment ──
-function postComment(){
-  const inp = document.getElementById('comment-input');
-  const txt = inp.value.trim();
-  if(!txt) return;
-  const list = document.getElementById('comment-list');
-  const div = document.createElement('div');
-  div.className = 'cm';
-  div.innerHTML =
-    '<div class="cm-av">YO</div>'+
-    '<div class="cm-body">'+
-      '<div class="cm-name">@you</div>'+
-      '<div class="cm-text">'+txt+'</div>'+
-      '<div class="cm-time">Just now</div>'+
-    '</div>';
-  list.appendChild(div);
-  inp.value = '';
-  showToast('Comment posted');
-}
+function prevShoot(){ const i=shootList.indexOf(currentShootId); if(i<0) return; window.location.href='image.html?shoot='+encodeURIComponent(shootList[(i-1+shootList.length)%shootList.length]); }
+function nextShoot(){ const i=shootList.indexOf(currentShootId); if(i<0) return; window.location.href='image.html?shoot='+encodeURIComponent(shootList[(i+1)%shootList.length]); }
 
-// ── shoot navigation ──
-function prevShoot(){
-  const i = shootList.indexOf(currentShootId);
-  const prev = shootList[(i - 1 + shootList.length) % shootList.length];
-  window.location.href = 'image.html?shoot='+encodeURIComponent(prev);
-}
-function nextShoot(){
-  const i = shootList.indexOf(currentShootId);
-  const next = shootList[(i + 1) % shootList.length];
-  window.location.href = 'image.html?shoot='+encodeURIComponent(next);
-}
+function goBack(){ if(document.referrer&&document.referrer.includes(window.location.hostname)){ history.back(); } else { window.location.href='index.html'; } }
 
-// ── back ──
-function goBack(){
-  if(document.referrer && document.referrer.includes(window.location.hostname)){
-    history.back();
-  } else {
-    window.location.href = 'index.html';
-  }
-}
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('on'); setTimeout(function(){ t.classList.remove('on'); },3000); }
+function esc(str){ if(!str) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function timeAgo(dateStr){ const diff=Date.now()-new Date(dateStr).getTime(),mins=Math.floor(diff/60000); if(mins<1) return 'just now'; if(mins<60) return mins+'m ago'; const hrs=Math.floor(mins/60); if(hrs<24) return hrs+'h ago'; return Math.floor(hrs/24)+'d ago'; }
 
-// ── toast ──
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('on');
-  setTimeout(function(){ t.classList.remove('on'); }, 3000);
-}
-
-// ── start ──
 init();
 </script>
 </body>

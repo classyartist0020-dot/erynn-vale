@@ -7,7 +7,8 @@
     "impact": 8,
     "mood": "soft",
     "composition": "full-body",
-    "orientation": "wide"
+    "orientation": "wide",
+    "shootId": "street-style-daytime"
   },
   "featured": [
     {
@@ -18,7 +19,8 @@
       "impact": 8,
       "mood": "bright",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "tennis-outdoor-bright"
     },
     {
       "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_488267190417973251.jpg",
@@ -28,7 +30,8 @@
       "impact": 7,
       "mood": "bright",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "tennis-court-portrait"
     },
     {
       "filename": "hailuo_1773861735.jpg",
@@ -38,7 +41,8 @@
       "impact": 8,
       "mood": "bold",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "car-white-outfit"
     },
     {
       "filename": "hailuo_1773862112.jpg",
@@ -48,7 +52,8 @@
       "impact": 8,
       "mood": "bold",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "car-white-outfit"
     },
     {
       "filename": "hailuo_1773869689.jpg",
@@ -58,7 +63,8 @@
       "impact": 8,
       "mood": "soft",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "poolside-black-bikini"
     },
     {
       "filename": "hailuo_1773781398.jpg",
@@ -68,7 +74,8 @@
       "impact": 8,
       "mood": "bright",
       "composition": "half-body",
-      "orientation": "wide"
+      "orientation": "wide",
+      "shootId": "poolside-bikini-shoot"
     },
     {
       "filename": "Hailuo_Image_Same woman Create a raw candid_491864432833134600.jpg",
@@ -78,7 +85,8 @@
       "impact": 8,
       "mood": "bright",
       "composition": "half-body",
-      "orientation": "wide"
+      "orientation": "wide",
+      "shootId": "beach-white-outfit"
     },
     {
       "filename": "Hailuo_Image_Same woman Create an ultra-pho_491849952308948995.jpg",
@@ -88,7 +96,8 @@
       "impact": 8,
       "mood": "bright",
       "composition": "half-body",
-      "orientation": "wide"
+      "orientation": "wide",
+      "shootId": "beach-white-outfit"
     },
     {
       "filename": "hailuo_1773867219.jpg",
@@ -98,7 +107,8 @@
       "impact": 8,
       "mood": "bold",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "stadium-daytime-casual"
     },
     {
       "filename": "hailuo_1773867574.jpg",
@@ -108,7 +118,8 @@
       "impact": 8,
       "mood": "bold",
       "composition": "half-body",
-      "orientation": "tall"
+      "orientation": "tall",
+      "shootId": "stadium-casual-portrait"
     }
   ],
   "gallery": {
@@ -121,7 +132,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-outdoor-bright"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_488267190417973251.jpg",
@@ -131,7 +143,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-court-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _variation_id___t_488261223252938756.jpg",
@@ -141,7 +154,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-outdoor-bright"
       },
       {
         "filename": "Hailuo_Image_Same woman _image_type___phot_488259927775055874.jpg",
@@ -151,7 +165,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "portrait"
+        "orientation": "portrait",
+        "shootId": "tennis-outdoor-bright"
       },
       {
         "filename": "Hailuo_Image_Same woman __ _variation_id____488265493645799430.jpg",
@@ -161,7 +176,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-outdoor-bright"
       },
       {
         "filename": "Hailuo_Image_Same woman __image_type___pho_488256575490162693.jpg",
@@ -171,7 +187,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "portrait"
+        "orientation": "portrait",
+        "shootId": "tennis-outdoor-bright"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487231484396191752.jpg",
@@ -181,7 +198,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "outdoor-athleisure-day"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487233869403242499.jpg",
@@ -191,7 +209,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "parking-lot-athleisure"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487234988900761605.jpg",
@@ -201,7 +220,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-park-athleisure"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487241586893234179.jpg",
@@ -211,7 +231,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "gym-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487243511508348933.jpg",
@@ -221,7 +242,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "gym-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487402338363166723.jpg",
@@ -231,7 +253,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "gym-floor-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487537722992656391.jpg",
@@ -241,7 +264,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-athleisure-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487539663143448576.jpg",
@@ -251,7 +275,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-gym-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487541462235688963.jpg",
@@ -261,7 +286,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-fitness-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487542269584654340.jpg",
@@ -271,7 +297,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-athleisure-daylight"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487789955231592448.jpg",
@@ -281,7 +308,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bedroom-lingerie-natural"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488036802810408960.jpg",
@@ -291,7 +319,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-court-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488139594573197314.jpg",
@@ -301,7 +330,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "street-fitness-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488142201169608705.jpg",
@@ -311,7 +341,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "portrait"
+        "orientation": "portrait",
+        "shootId": "coffee-gym-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487700227853455367.jpg",
@@ -321,7 +352,8 @@
         "impact": 6,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "desert-cycling-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_488093984855891973.jpg",
@@ -331,7 +363,8 @@
         "impact": 6,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-white-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman lying flat on the b_488903219793887240.jpg",
@@ -341,7 +374,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "bedroom-athleisure-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_488264617841565703.jpg",
@@ -351,7 +385,8 @@
         "impact": 6,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tennis-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene_type__ _ou_488434965711167495.jpg",
@@ -361,7 +396,8 @@
         "impact": 6,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-athleisure-day"
       }
     ],
     "luxury": [
@@ -373,7 +409,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-white-outfit"
       },
       {
         "filename": "hailuo_1773862112.jpg",
@@ -383,7 +420,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-white-outfit"
       },
       {
         "filename": "hailuo_1773863121.jpg",
@@ -393,7 +431,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-white-outfit"
       },
       {
         "filename": "hailuo_1773863720.jpg",
@@ -403,7 +442,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-white-outfit"
       },
       {
         "filename": "hailuo_1773863743.jpg",
@@ -413,7 +453,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "city-night-glamour"
       },
       {
         "filename": "hailuo_1773864081.jpg",
@@ -423,7 +464,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "nighttime-luxury-portrait"
       },
       {
         "filename": "hailuo_1773864432.jpg",
@@ -433,7 +475,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "city-night-glamour"
       },
       {
         "filename": "hailuo_1773870862.jpg",
@@ -443,7 +486,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "poolside-black-bikini"
       },
       {
         "filename": "Hailuo_image_487884082937929731.jpg",
@@ -453,7 +497,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "street-style-daytime"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487737738050953218 (1).jpg",
@@ -463,7 +508,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-bikini"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487737738050953218.jpg",
@@ -473,7 +519,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-bikini"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487750529294016519.jpg",
@@ -483,7 +530,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "pool-gold-jewelry"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487753489478610953.jpg",
@@ -493,7 +541,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "pool-gold-jewelry"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487756087325708294.jpg",
@@ -503,7 +552,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "pool-side-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487757497031245833.jpg",
@@ -513,7 +563,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "infinity-pool-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman Create a high-end f_491869159683739655.jpg",
@@ -523,7 +574,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "palm-beach-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-pho_491861440763518976.jpg",
@@ -533,7 +585,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-pho_491866377354440705.jpg",
@@ -543,7 +596,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman shots and poses whi_488891470873104389.jpg",
@@ -553,7 +607,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-pool-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _ _image_st_489539431961612290.jpg",
@@ -563,7 +618,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "coastal-evening-glamour"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style_489554577136177159.jpg",
@@ -573,7 +629,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stone-wall-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style_489556026045956100.jpg",
@@ -583,7 +640,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stone-pathway-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style__ _489534562081062915.jpg",
@@ -593,7 +651,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "seaside-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style__ _ _489339515305906184.jpg",
@@ -603,7 +662,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "night-restaurant-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style__ _u_489547182087512065 (1).jpg",
@@ -613,7 +673,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "coastal-morning-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_style__ _u_489547182087512065.jpg",
@@ -623,7 +684,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "coastal-morning-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman _ _image_type__ _488794352841809927.jpg",
@@ -633,7 +695,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-market-fashion"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene_type__ _ou_491847440587747329.jpg",
@@ -643,7 +706,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _491488431049498632.jpg",
@@ -653,7 +717,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "rooftop-golden-hour"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _491489200872017926.jpg",
@@ -663,7 +728,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "elevator-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487849110650802176.jpg",
@@ -673,7 +739,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "golden-mirror-studio"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487852310112038920.jpg",
@@ -683,7 +750,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "high-end-dinner-club"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487096245749424131.jpg",
@@ -693,7 +761,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487115174425251841.jpg",
@@ -703,7 +772,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, _ _image_type___488220112392241153.jpg",
@@ -713,7 +783,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _491490613941465092.jpg",
@@ -723,7 +794,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "balcony-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491700785737588742.jpg",
@@ -733,7 +805,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-bubble-bath"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _locat_491480422906789889.jpg",
@@ -743,7 +816,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "staircase-black-gown"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _locat_491481825834418178.jpg",
@@ -753,7 +827,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "black-dress-car"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _locat_491485341818793989.jpg",
@@ -763,7 +838,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-glamour"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _locat_491486641570680836.jpg",
@@ -773,7 +849,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-glamour"
       },
       {
         "filename": "Hailuo_Image_Same woman _image_style__ _ _489546998867726336.jpg",
@@ -783,7 +860,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "poolside-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman _image_style__ _ _489550401069023235.jpg",
@@ -793,7 +871,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "nighttime-city-balcony"
       },
       {
         "filename": "Hailuo_Image_same woman _image__ _ __488775793751257093.jpg",
@@ -803,7 +882,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "city-street-chic"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486771648701263877.jpg",
@@ -813,7 +893,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-bathroom-glamour"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487506885765042182.jpg",
@@ -823,7 +904,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "white-staircase-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487516617422684161.jpg",
@@ -833,7 +915,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-editorial"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487518952274337799.jpg",
@@ -843,7 +926,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "hotel-room-editorial"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487530356658200580.jpg",
@@ -853,7 +937,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-editorial"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487853744652058624.jpg",
@@ -863,7 +948,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-bathroom-glam"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488147406468587523.jpg",
@@ -873,7 +959,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stone-column-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488150848738074624.jpg",
@@ -883,7 +970,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stone-archway-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488154822040010761.jpg",
@@ -893,7 +981,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "marble-staircase-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488159051601371148.jpg",
@@ -903,7 +992,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "black-tie-interior"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487108857992204292.jpg",
@@ -913,7 +1003,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487111218122829833.jpg",
@@ -923,7 +1014,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487114016608669699.jpg",
@@ -933,7 +1025,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, _ _image_type__ _488168931649314826.jpg",
@@ -943,7 +1036,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-bedroom-glamour"
       },
       {
         "filename": "Hailuo_Image_Same woman, _ _image_type__488228973908008964.jpg",
@@ -953,7 +1047,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-portrait"
       },
       {
         "filename": "hailuo_1773774227.jpg",
@@ -963,7 +1058,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "kitchen-white-towel"
       },
       {
         "filename": "Hailuo_Image_Same woman, _ _image_type___488226774125600768.jpg",
@@ -973,7 +1069,8 @@
         "impact": 7,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "black-dress-garage"
       },
       {
         "filename": "hailuo_1773775946.jpg",
@@ -983,7 +1080,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "kitchen-white-towel"
       },
       {
         "filename": "Hailuo_image_487880881022996488.jpg",
@@ -993,7 +1091,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "city-street-style"
       },
       {
         "filename": "Hailuo_Image_Same woman A sensual, cinemati_491764617994543107.jpg",
@@ -1003,7 +1102,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "bubble-bath-luxury"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _prompt__ _ _491706840412573704.jpg",
@@ -1013,7 +1113,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "close-up",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "bubble-bath-portfolio"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _prompt__ _ _491708070316683269.jpg",
@@ -1023,7 +1124,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "bubble-bath-studio"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _prompt__ _ _491710562668609545.jpg",
@@ -1033,7 +1135,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "bathroom-bubble-relax"
       }
     ],
     "editorial": [
@@ -1045,7 +1148,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "poolside-bikini-shoot"
       },
       {
         "filename": "hailuo_1773869689.jpg",
@@ -1055,7 +1159,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "poolside-black-bikini"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487722700405755905.jpg",
@@ -1065,7 +1170,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bedroom-black-satin"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487709832851521545.jpg",
@@ -1075,7 +1181,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "dark-hallway-editorial"
       },
       {
         "filename": "Hailuo_Image_Same woman Create a tight edit_491863096100065281.jpg",
@@ -1085,7 +1192,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "close-up",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487710379407126537.jpg",
@@ -1095,7 +1203,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bedroom-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491647742790836226.jpg",
@@ -1105,7 +1214,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "green-dress-outdoor"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487711344348639237 (1).jpg",
@@ -1115,7 +1225,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491650683585089536.jpg",
@@ -1125,7 +1236,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "green-bodysuit-outdoor"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487711344348639237.jpg",
@@ -1135,7 +1247,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491653608155836416.jpg",
@@ -1145,7 +1258,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "green-dress-outdoor"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487712758084968448.jpg",
@@ -1155,7 +1269,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bathroom-black-dress"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491656335086805001.jpg",
@@ -1165,7 +1280,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "green-dress-outdoor"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487721692682276872.jpg",
@@ -1175,7 +1291,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "city-nighttime-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _style__ _ultra-r_491498167899713541.jpg",
@@ -1185,7 +1302,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman _ _image_type__ _hy_488794678995087360.jpg",
@@ -1195,7 +1313,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "close-up",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "black-and-white-studio"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _style__ _ultra-r_491500394995470343.jpg",
@@ -1205,7 +1324,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "natural-light-studio"
       },
       {
         "filename": "Hailuo_Image_same woman _ _prompt_id__ _var_488872119776358403.jpg",
@@ -1215,7 +1335,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-pool-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman _scene_type__ _indo_488801548870856709.jpg",
@@ -1225,7 +1346,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-pool-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman _ _prompt_id__ _var_488900866537672708.jpg",
@@ -1235,7 +1357,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "underwater-black-bathing-suit"
       },
       {
         "filename": "Hailuo_Image_same woman _scene_type__ _mini_488902465431556101.jpg",
@@ -1245,7 +1368,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "indoor-pool-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman _scene_type__ _indo_488899818993487878.jpg",
@@ -1255,7 +1379,8 @@
         "impact": 7,
         "mood": "moody",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-pool-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486750658957070342.jpg",
@@ -1265,7 +1390,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "red-dress-studio"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486751999859220482.jpg",
@@ -1275,7 +1401,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "red-dress-studio"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487225057241841664.jpg",
@@ -1285,7 +1412,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "studio-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487453152796540929 - Copy.jpg",
@@ -1295,7 +1423,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "blush-blue-interiors"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487444916961841152 - Copy.jpg",
@@ -1305,7 +1434,8 @@
         "impact": 7,
         "mood": "moody",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "garage-black-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487453152796540929.jpg",
@@ -1315,7 +1445,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "blush-bathroom-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487444916961841152.jpg",
@@ -1325,7 +1456,8 @@
         "impact": 7,
         "mood": "moody",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "garage-black-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487474320941338632.jpg",
@@ -1335,7 +1467,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "denim-studio-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487475887245434883 - Copy.jpg",
@@ -1345,7 +1478,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-denim-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487475887245434883.jpg",
@@ -1355,7 +1489,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "studio-denim-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487500178422779911.jpg",
@@ -1365,7 +1500,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487487446894063622.jpg",
@@ -1375,7 +1511,8 @@
         "impact": 7,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "black-cloth-studio"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487503480757702659.jpg",
@@ -1385,7 +1522,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "minimalist-beach-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487505976892936195.jpg",
@@ -1395,7 +1533,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "blush-beach-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487507882449088518.jpg",
@@ -1405,7 +1544,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487509123547824133.jpg",
@@ -1415,7 +1555,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487511301763121161.jpg",
@@ -1425,7 +1566,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487521005725872132.jpg",
@@ -1435,7 +1577,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-denim"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487525783621152773.jpg",
@@ -1445,7 +1588,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-denim"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487533062294679560.jpg",
@@ -1455,7 +1599,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bedroom-denim-glam"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487692072717193225.jpg",
@@ -1465,7 +1610,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-black-dress"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487880179139813385.jpg",
@@ -1475,7 +1621,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "car-interior-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487116194937212928.jpg",
@@ -1485,7 +1632,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "hailuo_1773772877.jpg",
@@ -1495,7 +1643,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "kitchen-white-towel"
       },
       {
         "filename": "hailuo_1773777115.jpg",
@@ -1505,7 +1654,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "bathroom-towel-shoot"
       },
       {
         "filename": "hailuo_1773777395.jpg",
@@ -1515,7 +1665,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "close-up",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "bathroom-natural-light"
       },
       {
         "filename": "hailuo_1773782851.jpg",
@@ -1525,7 +1676,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "leather-jacket-studio"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_488092399367081991.jpg",
@@ -1535,7 +1687,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "studio-portrait-blonde"
       },
       {
         "filename": "Hailuo_Image_same woman _ _prompt_id__ _var_488802625460670474.jpg",
@@ -1545,7 +1698,8 @@
         "impact": 6,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "indoor-pool-portrait"
       }
     ],
     "travel": [
@@ -1557,7 +1711,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-pho_491849952308948995.jpg",
@@ -1567,7 +1722,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-pho_491853701073068036.jpg",
@@ -1577,7 +1733,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-rea_491869946300256265.jpg",
@@ -1587,7 +1744,8 @@
         "impact": 8,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman _ _image_type__ _hy_489150506692689924.jpg",
@@ -1597,7 +1755,8 @@
         "impact": 8,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "paris-bridal-look"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _p_489293220298035208.jpg",
@@ -1607,7 +1766,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "venice-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _scene__ _ _envir_491674173390393353.jpg",
@@ -1617,7 +1777,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "poolside-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman _prompt_1__ _ __489550980071739394.jpg",
@@ -1627,7 +1788,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "coastal-morning-terrace"
       },
       {
         "filename": "Hailuo_Image_Same woman _scene__ _ __489552294235222019.jpg",
@@ -1637,7 +1799,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "coastal-morning-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486820179319308296.jpg",
@@ -1647,7 +1810,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486822440711856130.jpg",
@@ -1657,7 +1821,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486827949221359620.jpg",
@@ -1667,7 +1832,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_486956097980211201.jpg",
@@ -1677,7 +1843,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-black-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487058453405261829.jpg",
@@ -1687,7 +1854,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "boat-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487065075712135174.jpg",
@@ -1697,7 +1865,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "boat-bikini-sunset"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487066100846206977.jpg",
@@ -1707,7 +1876,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "boat-sunset-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487066935558844421.jpg",
@@ -1717,7 +1887,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "boat-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487467107526950917.jpg",
@@ -1727,7 +1898,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tropical-beach-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487532441738960904.jpg",
@@ -1737,7 +1909,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-green-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487536072831848448.jpg",
@@ -1747,7 +1920,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-green-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487538290431660039.jpg",
@@ -1757,7 +1931,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-green-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487538892859518977.jpg",
@@ -1767,7 +1942,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-green-bikini"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487542959233052678.jpg",
@@ -1777,7 +1953,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "tropical-pool-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487545032095870976.jpg",
@@ -1787,7 +1964,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-golden-bikini"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487796342640680960.jpg",
@@ -1797,7 +1975,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "greek-island-balcony"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487812475359866882.jpg",
@@ -1807,7 +1986,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "greek-island-balcony"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487813806376153097.jpg",
@@ -1817,7 +1997,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "greek-island-balcony"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487815038411010050.jpg",
@@ -1827,7 +2008,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "greek-island-balcony"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487875310416908295.jpg",
@@ -1837,7 +2019,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "mountain-terrace-bikini"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488075636512256001.jpg",
@@ -1847,7 +2030,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "desert-pyramid-session"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488079770221125632.jpg",
@@ -1857,7 +2041,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "close-up",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "desert-golden-hour"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488089791789228033.jpg",
@@ -1867,7 +2052,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "desert-sunset-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488091537605312515.jpg",
@@ -1877,7 +2063,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "pyramid-desert-glam"
       },
       {
         "filename": "Hailuo_Image_Same woman, excact same identi_487097922028175366.jpg",
@@ -1887,7 +2074,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-white-outfit"
       },
       {
         "filename": "Hailuo_Image_Same woman, scene__ _ _489706413973483530.jpg",
@@ -1897,7 +2085,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type__ _p_489313720386625540.jpg",
@@ -1907,7 +2096,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "venice-outdoor-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type__488277668426883078.jpg",
@@ -1917,7 +2107,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type___488279337181044741.jpg",
@@ -1927,7 +2118,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-golden-hour"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type___488279400385003529.jpg",
@@ -1937,7 +2129,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type___488280830449741826.jpg",
@@ -1947,7 +2140,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _image_type___488282164511080455.jpg",
@@ -1957,7 +2151,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _prompt_na_489305502818172931.jpg",
@@ -1967,7 +2162,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "venice-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _prompt_na_489310553456410634.jpg",
@@ -1977,7 +2173,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "venice-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _prompt_n_489308648936243209.jpg",
@@ -1987,7 +2184,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "venice-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _prompt_n_489309230522572801.jpg",
@@ -1997,7 +2195,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "venice-summer-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, _ _prompt_type__ __489691795330834441.jpg",
@@ -2007,7 +2206,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _ _prompt_type___490035749046005770.jpg",
@@ -2017,7 +2217,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman, _environment__ _op_490028463095365639.jpg",
@@ -2027,7 +2228,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, _image_type__ _pho_489312338971611143.jpg",
@@ -2037,7 +2239,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "venice-daytime-casual"
       },
       {
         "filename": "Hailuo_Image_same woman, _image_type__ _ph_489316674057449482.jpg",
@@ -2047,7 +2250,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "venice-daytime-casual"
       },
       {
         "filename": "Hailuo_Image_same woman, _image_type__ _p_489318604884324355.jpg",
@@ -2057,7 +2261,8 @@
         "impact": 7,
         "mood": "soft",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "venice-canals-fashion"
       },
       {
         "filename": "Hailuo_Image_Same woman, _scene__ _ _489708736099569666.jpg",
@@ -2067,7 +2272,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman, _scene__ _ _490031556923072518.jpg",
@@ -2077,7 +2283,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_same woman, __image_type___p_488275294887051271.jpg",
@@ -2087,7 +2294,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, __image_type___p_488276562179194881.jpg",
@@ -2097,7 +2305,8 @@
         "impact": 7,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "beach-bikini-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman Create an ultra-pho_491852590006120449.jpg",
@@ -2107,7 +2316,8 @@
         "impact": 6,
         "mood": "bright",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "beach-white-outfit"
       }
     ],
     "baddie": [
@@ -2119,7 +2329,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stadium-daytime-casual"
       },
       {
         "filename": "hailuo_1773867574.jpg",
@@ -2129,7 +2340,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stadium-casual-portrait"
       },
       {
         "filename": "hailuo_1773868477.jpg",
@@ -2139,7 +2351,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "stadium-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487772133268955143.jpg",
@@ -2149,7 +2362,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "studio-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487704897174913026.jpg",
@@ -2159,7 +2373,8 @@
         "impact": 8,
         "mood": "moody",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "desert-dune-shoot"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_491098390577823751.jpg",
@@ -2169,7 +2384,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "outdoor-motorcycle-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_491100297660755974.jpg",
@@ -2179,7 +2395,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-biker-garden"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_491102794638999561.jpg",
@@ -2189,7 +2406,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "motorcycle-garden-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_491104893825236997.jpg",
@@ -2199,7 +2417,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-biker-garden"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ _ph_491106900984246274.jpg",
@@ -2209,7 +2428,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-motorcycle-portfolio"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ __491109780608823301.jpg",
@@ -2219,7 +2439,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "outdoor-garden-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ __491109795167227907.jpg",
@@ -2229,7 +2450,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-motorcycle-session"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ __491113171590352904.jpg",
@@ -2239,7 +2461,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-motorcycle-session"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ __491114244774371328.jpg",
@@ -2249,7 +2472,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-motorcycle-session"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _image_type__ __491120197313802243.jpg",
@@ -2259,7 +2483,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "motorcycle-garden-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _prompt__ _ _styl_491071400881725450.jpg",
@@ -2269,7 +2494,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "modern-bedroom-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487548637905502214.jpg",
@@ -2279,7 +2505,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "hotel-bathroom-selfie"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487549457170452484.jpg",
@@ -2289,7 +2516,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-room-mirror"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487778902770753543.jpg",
@@ -2299,7 +2527,8 @@
         "impact": 8,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "hotel-corridor-portrait"
       },
       {
         "filename": "hailuo_1773781707.jpg",
@@ -2309,7 +2538,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "urban-street-style"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487754838895267843.jpg",
@@ -2319,7 +2549,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "studio-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486960927746457602.jpg",
@@ -2329,7 +2560,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "urban-pink-street"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486962728545722371.jpg",
@@ -2339,7 +2571,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "urban-pink-street"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486964812062044162.jpg",
@@ -2349,7 +2582,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "urban-pink-street"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486967673390997511.jpg",
@@ -2359,7 +2593,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "street-style-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486968821883781129.jpg",
@@ -2369,7 +2604,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "close-up",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "urban-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486970241009709057.jpg",
@@ -2379,7 +2615,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "urban-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486976311153254403.jpg",
@@ -2389,7 +2626,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "outdoor-cafe-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486979163166777351.jpg",
@@ -2399,7 +2637,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "urban-pink-outfit"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_486988066550059012.jpg",
@@ -2409,7 +2648,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "urban-pink-alley"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487235736531251206.jpg",
@@ -2419,7 +2659,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "parking-lot-athleisure"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487451871554109447.jpg",
@@ -2429,7 +2670,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "modern-bathroom-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487453649515352072.jpg",
@@ -2439,7 +2681,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "modern-dress-studio"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487455427694714880.jpg",
@@ -2449,7 +2692,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "modern-dress-studio"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487695454957772806.jpg",
@@ -2459,7 +2703,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "formula-one-garage"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487697455577886726.jpg",
@@ -2469,7 +2714,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "gas-station-glamour"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487780367971172361.jpg",
@@ -2479,7 +2725,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "city-street-nighttime"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487781308665487364.jpg",
@@ -2489,7 +2736,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "rooftop-casual-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487782932368662533.jpg",
@@ -2499,7 +2747,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "city-rooftop-casual"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_487783669479825408.jpg",
@@ -2509,7 +2758,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "urban-night-portrait"
       },
       {
         "filename": "Hailuo_Image_same woman, exact same identit_487859513971744771.jpg",
@@ -2519,7 +2769,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "urban-industrial-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman, exact same identit_488138367609315330.jpg",
@@ -2529,7 +2780,8 @@
         "impact": 7,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "square"
+        "orientation": "square",
+        "shootId": "coffee-shop-casual"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487756681406861315.jpg",
@@ -2539,7 +2791,8 @@
         "impact": 6,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "minimalist-interior-portrait"
       },
       {
         "filename": "Hailuo_Image_Same woman , exact same identi_487757685875617795.jpg",
@@ -2549,7 +2802,8 @@
         "impact": 6,
         "mood": "bold",
         "composition": "full-body",
-        "orientation": "tall"
+        "orientation": "tall",
+        "shootId": "minimalist-studio-setup"
       },
       {
         "filename": "Hailuo_Image_Same woman _ _meta__ _ __488523207114604544.jpg",
@@ -2559,7 +2813,8 @@
         "impact": 6,
         "mood": "bold",
         "composition": "half-body",
-        "orientation": "wide"
+        "orientation": "wide",
+        "shootId": "pink-lounge-session"
       }
     ]
   }

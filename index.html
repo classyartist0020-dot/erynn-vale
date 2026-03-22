@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>ERYNN VALE — British Model & Influencer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<!-- ★ Supabase — must come before supabase-client.js -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
@@ -20,7 +25,7 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 /* ── SCROLL PROGRESS BAR ── */
 #prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(to right,var(--gold),var(--gold2));z-index:1000;width:0%;transition:width .1s linear;}
 
-/* ── CUSTOM CURSOR (no mix-blend-mode) ── */
+/* ── CUSTOM CURSOR ── */
 .cur{position:fixed;width:6px;height:6px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s;}
 .cur-r{position:fixed;width:32px;height:32px;border:1px solid rgba(200,167,107,.55);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s,transform .2s;}
 .cur-r.hov{width:48px;height:48px;border-color:rgba(200,167,107,.9);}
@@ -44,32 +49,13 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 .mob a:hover{color:var(--gold);}
 .mob-x{position:absolute;top:22px;right:30px;background:none;border:none;color:var(--mu);font-size:1.7rem;cursor:pointer;line-height:1;}
 
-/* ════════════════════════════════════════
-   HERO  —  full viewport, text on image
-   NO card/box. Text directly over photo.
-════════════════════════════════════════ */
+/* ── HERO ── */
 #hero{
   position:relative;width:100%;height:100vh;min-height:620px;
   overflow:hidden;
-  /* Gorgeous fallback gradient if image doesn't load */
-  background: linear-gradient(135deg,
-    #09080d 0%,
-    #1a1424 25%,
-    #0e0b18 45%,
-    #1c1208 70%,
-    #09080d 100%
-  );
+  background: linear-gradient(135deg,#09080d 0%,#1a1424 25%,#0e0b18 45%,#1c1208 70%,#09080d 100%);
 }
-
-/* Hero photo — parallax handled via JS */
-#hero-img{
-  position:absolute;inset:0;width:100%;height:115%;
-  object-fit:cover;object-position:center 20%;
-  filter:brightness(.7) saturate(1.15);
-  will-change:transform;
-}
-
-/* Cinematic gradient stack — left dark for text, bottom fade, subtle warm glow */
+#hero-img{position:absolute;inset:0;width:100%;height:115%;object-fit:cover;object-position:center 20%;filter:brightness(.7) saturate(1.15);will-change:transform;}
 #hero-grad{
   position:absolute;inset:0;
   background:
@@ -78,110 +64,28 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
     radial-gradient(ellipse 65% 70% at 8% 85%,  rgba(200,167,107,.1) 0%,  transparent 55%),
     radial-gradient(ellipse 40% 50% at 85% 15%, rgba(200,167,107,.04) 0%, transparent 50%);
 }
-
-/* Subtle grain */
-#hero-grad::after{
-  content:'';position:absolute;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.04'/%3E%3C/svg%3E");
-  pointer-events:none;
-}
-
-/* Decorative vertical gold line */
+#hero-grad::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;}
 .h-vline{position:absolute;left:44px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent 5%,var(--gold) 30%,var(--gold) 68%,transparent 95%);opacity:.16;pointer-events:none;}
-
-/* Hero text — directly on image */
-#hero-text{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:0 44px 44px;
-  z-index:10;
-  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
-}
-
-/* Name block */
+#hero-text{position:absolute;bottom:0;left:0;right:0;padding:0 44px 44px;z-index:10;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;}
 .h-name-block{flex:1;max-width:560px;}
-.h-eyebrow{
-  display:flex;align-items:center;gap:14px;
-  font-size:.62rem;letter-spacing:.52em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:14px;opacity:0;animation:riseUp .9s .2s ease forwards;
-}
+.h-eyebrow{display:flex;align-items:center;gap:14px;font-size:.62rem;letter-spacing:.52em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;opacity:0;animation:riseUp .9s .2s ease forwards;}
 .h-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
-.h-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,6vw,6.5rem);
-  line-height:.83;letter-spacing:.015em;
-  text-shadow:0 4px 40px rgba(0,0,0,.6);
-  opacity:0;animation:riseUp .9s .35s ease forwards;
-}
+.h-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,6.5rem);line-height:.83;letter-spacing:.015em;text-shadow:0 4px 40px rgba(0,0,0,.6);opacity:0;animation:riseUp .9s .35s ease forwards;}
 .h-name-gold{color:var(--gold);text-shadow:0 0 80px rgba(200,167,107,.4),0 4px 40px rgba(0,0,0,.5);}
-
-/* Gold ornamental rule */
-.h-rule{
-  display:flex;align-items:center;gap:14px;
-  margin:18px 0 22px;
-  opacity:0;animation:riseUp .9s .5s ease forwards;
-}
+.h-rule{display:flex;align-items:center;gap:14px;margin:18px 0 22px;opacity:0;animation:riseUp .9s .5s ease forwards;}
 .h-rule-line{height:1px;width:80px;background:linear-gradient(to right,var(--gold),transparent);}
 .h-rule-dot{width:4px;height:4px;background:var(--gold);border-radius:50%;}
-
-/* Tagline — italic, directly on image */
-.h-tagline{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:clamp(.88rem,1.4vw,1.05rem);font-weight:300;
-  color:rgba(244,239,232,.78);
-  letter-spacing:.04em;line-height:1.4;
-  text-shadow:0 2px 20px rgba(0,0,0,.7);
-  margin-bottom:26px;
-  opacity:0;animation:riseUp .9s .6s ease forwards;
-}
-
-/* Bio — small, thin, on image */
-.h-bio{
-  font-size:clamp(.76rem,.85vw,.9rem);font-weight:300;
-  color:rgba(244,239,232,.6);line-height:1.8;
-  max-width:520px;
-  text-shadow:0 1px 12px rgba(0,0,0,.8);
-  margin-bottom:28px;
-  opacity:0;animation:riseUp .9s .72s ease forwards;
-}
-
-/* Meta badges — inline, no box */
-.h-meta{
-  display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;
-  opacity:0;animation:riseUp .9s .84s ease forwards;
-}
-.h-badge{
-  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold2);
-  border:1px solid rgba(200,167,107,.3);
-  padding:5px 14px;
-  background:rgba(9,8,13,.4);
-  backdrop-filter:blur(8px);
-}
-
-/* CTA buttons */
-.h-btns{
-  display:flex;gap:12px;flex-wrap:wrap;
-  opacity:0;animation:riseUp .9s .96s ease forwards;
-}
-
-/* Right — floating stat column */
-.h-stats{
-  display:flex;flex-direction:column;gap:0;
-  align-items:flex-end;padding-bottom:8px;
-  opacity:0;animation:riseUp .9s 1.1s ease forwards;
-  flex-shrink:0;
-}
+.h-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(.88rem,1.4vw,1.05rem);font-weight:300;color:rgba(244,239,232,.78);letter-spacing:.04em;line-height:1.4;text-shadow:0 2px 20px rgba(0,0,0,.7);margin-bottom:26px;opacity:0;animation:riseUp .9s .6s ease forwards;}
+.h-bio{font-size:clamp(.76rem,.85vw,.9rem);font-weight:300;color:rgba(244,239,232,.6);line-height:1.8;max-width:520px;text-shadow:0 1px 12px rgba(0,0,0,.8);margin-bottom:28px;opacity:0;animation:riseUp .9s .72s ease forwards;}
+.h-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px;opacity:0;animation:riseUp .9s .84s ease forwards;}
+.h-badge{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);border:1px solid rgba(200,167,107,.3);padding:5px 14px;background:rgba(9,8,13,.4);backdrop-filter:blur(8px);}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:riseUp .9s .96s ease forwards;}
+.h-stats{display:flex;flex-direction:column;gap:0;align-items:flex-end;padding-bottom:8px;opacity:0;animation:riseUp .9s 1.1s ease forwards;flex-shrink:0;}
 .hs{text-align:right;padding:16px 0;}
 .hs+.hs{border-top:1px solid rgba(255,255,255,.06);}
 .hs-n{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);line-height:1;text-shadow:0 0 40px rgba(200,167,107,.35);}
 .hs-l{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--mu);margin-top:2px;}
-
-/* Scroll pill */
-.h-scroll{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:6px;z-index:10;
-  opacity:0;animation:riseUp .8s 1.3s ease forwards;
-}
+.h-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;z-index:10;opacity:0;animation:riseUp .8s 1.3s ease forwards;}
 .h-scroll span{font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mu);}
 .h-scroll-bar{width:1px;height:42px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2.2s ease-in-out infinite;}
 @keyframes pulse{0%,100%{opacity:.3;height:42px}50%{opacity:.85;height:60px}}
@@ -219,11 +123,9 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 .fb.on,.fb:hover{background:var(--gold);color:var(--blk);border-color:var(--gold);z-index:1;position:relative;}
 .fb.pb{border-color:var(--bG);color:var(--gold);}
 .fb.pb.on,.fb.pb:hover{background:var(--gold);color:var(--blk);}
-
 .gg{columns:4;column-gap:7px;}
 @media(max-width:900px){.gg{columns:3;}}
 @media(max-width:560px){.gg{columns:2;column-gap:6px;}}
-
 .gi{break-inside:avoid;margin-bottom:7px;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--b);display:block;}
 .gi img{width:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.25,.46,.45,.94);}
 .gi:hover img{transform:scale(1.07);}
@@ -231,16 +133,12 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 .gi:hover .gio{opacity:1;}
 .gc{font-size:.55rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
 .gl{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.84rem;color:var(--cream);}
-
-/* Category colour accent */
 .gi[data-cat="fitness"] .gc{color:#a8d5b5;}
 .gi[data-cat="luxury"]  .gc{color:#e6cb94;}
 .gi[data-cat="travel"]  .gc{color:#a8c8e0;}
 .gi[data-cat="baddie"]  .gc{color:#e8a0b0;}
 .gi[data-cat="editorial"].gc{color:#d0c8e8;}
 .gi[data-cat="premium"] .gc{color:var(--gold);}
-
-/* Premium blur lock */
 .gi.prem img{filter:blur(11px) brightness(.4);transform:scale(1.14)!important;}
 .glk{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:rgba(9,8,13,.2);}
 .glk-i{font-size:1.5rem;}
@@ -248,7 +146,6 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 .glk-s{font-size:.54rem;letter-spacing:.22em;color:var(--mu);text-transform:uppercase;}
 .glk-btn{background:var(--gold);color:var(--blk);border:none;padding:7px 18px;font-family:'DM Sans',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:3px;}
 .glk-btn:hover{background:var(--gold2);}
-
 .lm{text-align:center;padding:28px 0 8px;}
 .lm p{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--mu);font-size:.86rem;margin-bottom:16px;}
 
@@ -315,9 +212,6 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--gold);color:var(--blk);font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;padding:11px 24px;opacity:0;transition:all .4s;z-index:999;pointer-events:none;max-width:90vw;text-align:center;}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0);}
 
-/* ── COUNTER animation ── */
-.si-n{transition:color .3s;}
-
 /* ── RESPONSIVE ── */
 @media(max-width:800px){
   #nav{padding:0 18px;height:58px;}
@@ -341,10 +235,7 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
 </head>
 <body>
 
-<!-- Scroll progress -->
 <div id="prog"></div>
-
-<!-- Custom cursor -->
 <div class="cur" id="cur"></div>
 <div class="cur-r" id="cur-r"></div>
 
@@ -369,12 +260,7 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
   <a href="#contact" onclick="cmob()">Book Now</a>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-  HERO — full viewport cover
-  ★ REPLACE src BELOW with Erynn's actual cover photo.
-     Ideal: portrait or semi-portrait, high-res, 1920px+
-     The gradient overlay handles all contrast automatically.
-═══════════════════════════════════════════════════ -->
+<!-- ═══ HERO ═══ -->
 <section id="hero">
   <img id="hero-img"
     src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1920&q=85&auto=format&fit=crop"
@@ -387,29 +273,23 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
     <div class="h-name-block">
       <div class="h-eyebrow">British Model &amp; Influencer</div>
       <div class="h-name">ERYNN<br><span class="h-name-gold">VALE</span></div>
-
       <div class="h-rule">
         <div class="h-rule-line"></div>
         <div class="h-rule-dot"></div>
       </div>
-
       <p class="h-tagline">Timeless beauty. Raw allure. Undeniable presence.</p>
       <p class="h-bio">London-based model and digital creator redefining modern femininity — blending editorial edge with effortless sensuality, captivating audiences and brands across the UK and beyond.</p>
-
       <div class="h-meta">
         <span class="h-badge">London, UK</span>
         <span class="h-badge">300+ Shoots</span>
         <span class="h-badge">Fashion · Beauty · Lifestyle</span>
         <span class="h-badge">Open to Collabs</span>
       </div>
-
       <div class="h-btns">
         <a href="#contact" class="btn-p">Book Now ✦</a>
         <a href="#gallery" class="btn-g">View Portfolio</a>
       </div>
     </div>
-
-    <!-- Floating stats — right side, desktop only -->
     <div class="h-stats">
       <div class="hs"><div class="hs-n" data-target="300">0</div><div class="hs-l">Photoshoots</div></div>
       <div class="hs"><div class="hs-n">500K</div><div class="hs-l">Following</div></div>
@@ -422,40 +302,8 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
 </section>
 
 <!-- ═══ FEATURED STRIP ═══ -->
-<!-- ★ Replace each src with your own photos -->
 <div id="strip">
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Dark Romanticism</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>High Fashion</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Portrait Series</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Urban Edge</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Golden Hour</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Luxury Lifestyle</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Skin &amp; Silk</span></div>
-  </div>
-  <div class="st" onclick="openLB('https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=1200&q=90&auto=format')">
-    <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=480&h=640&q=80&auto=format&fit=crop" alt="" loading="lazy">
-    <div class="st-cap"><span>Baddie Season</span></div>
-  </div>
+  <!-- Populated by Supabase -->
 </div>
 
 <!-- MARQUEE -->
@@ -501,121 +349,12 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
   </div>
 
   <div class="gg" id="gg">
-    <!-- FITNESS (4 images) -->
-    <div class="gi" data-cat="fitness" onclick="openLB('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=700&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Fitness</span><span class="gl">Power &amp; Grace</span></div>
-    </div>
-    <div class="gi" data-cat="fitness" onclick="openLB('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=500&h=800&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Fitness</span><span class="gl">Studio Sweat</span></div>
-    </div>
-    <div class="gi" data-cat="fitness" onclick="openLB('https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=500&h=600&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Fitness</span><span class="gl">Sculpted</span></div>
-    </div>
-    <div class="gi" data-cat="fitness" onclick="openLB('https://images.unsplash.com/photo-1540496905036-5937c10647cc?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1540496905036-5937c10647cc?w=500&h=720&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Fitness</span><span class="gl">Strong Energy</span></div>
-    </div>
-
-    <!-- LUXURY (4 images) -->
-    <div class="gi" data-cat="luxury" onclick="openLB('https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&h=740&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Luxury</span><span class="gl">Silk &amp; Gold</span></div>
-    </div>
-    <div class="gi" data-cat="luxury" onclick="openLB('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&h=640&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Luxury</span><span class="gl">Five-Star</span></div>
-    </div>
-    <div class="gi" data-cat="luxury" onclick="openLB('https://images.unsplash.com/photo-1566073771259-2a8c0af36a89?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1566073771259-2a8c0af36a89?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Luxury</span><span class="gl">Penthouse View</span></div>
-    </div>
-    <div class="gi" data-cat="luxury" onclick="openLB('https://images.unsplash.com/photo-1590059913761-f9974c5bec20?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1590059913761-f9974c5bec20?w=500&h=680&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Luxury</span><span class="gl">Resort Mode</span></div>
-    </div>
-
-    <!-- EDITORIAL (5 images) -->
-    <div class="gi" data-cat="editorial" onclick="openLB('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&h=720&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Editorial</span><span class="gl">Dark Romanticism</span></div>
-    </div>
-    <div class="gi" data-cat="editorial" onclick="openLB('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&h=660&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Editorial</span><span class="gl">Cover Worthy</span></div>
-    </div>
-    <div class="gi" data-cat="editorial" onclick="openLB('https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1485893086445-ed75865251e0?w=500&h=780&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Editorial</span><span class="gl">Monochrome</span></div>
-    </div>
-    <div class="gi" data-cat="editorial" onclick="openLB('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&h=620&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Editorial</span><span class="gl">Studio Series</span></div>
-    </div>
-    <div class="gi" data-cat="editorial" onclick="openLB('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=700&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Editorial</span><span class="gl">Bold &amp; Bare</span></div>
-    </div>
-
-    <!-- TRAVEL (4 images) -->
-    <div class="gi" data-cat="travel" onclick="openLB('https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500&h=760&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Travel</span><span class="gl">Santorini Vibes</span></div>
-    </div>
-    <div class="gi" data-cat="travel" onclick="openLB('https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=500&h=630&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Travel</span><span class="gl">Golden Hour</span></div>
-    </div>
-    <div class="gi" data-cat="travel" onclick="openLB('https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=500&h=700&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Travel</span><span class="gl">Amalfi Coast</span></div>
-    </div>
-    <div class="gi" data-cat="travel" onclick="openLB('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=660&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Travel</span><span class="gl">Maldives Dreams</span></div>
-    </div>
-
-    <!-- BADDIE (4 images) -->
-    <div class="gi" data-cat="baddie" onclick="openLB('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=680&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Baddie</span><span class="gl">Own the Room</span></div>
-    </div>
-    <div class="gi" data-cat="baddie" onclick="openLB('https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Baddie</span><span class="gl">Savage Energy</span></div>
-    </div>
-    <div class="gi" data-cat="baddie" onclick="openLB('https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=720&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Baddie</span><span class="gl">Street Royalty</span></div>
-    </div>
-    <div class="gi" data-cat="baddie" onclick="openLB('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=90&auto=format')">
-      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=660&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="gio"><span class="gc">Baddie</span><span class="gl">Certified</span></div>
-    </div>
-
-    <!-- PREMIUM (4 — blurred/locked) -->
-    <div class="gi prem" data-cat="premium">
-      <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=500&h=740&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
-    </div>
-    <div class="gi prem" data-cat="premium">
-      <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
-    </div>
-    <div class="gi prem" data-cat="premium">
-      <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?w=500&h=680&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
-    </div>
-    <div class="gi prem" data-cat="premium">
-      <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?w=500&h=760&q=80&auto=format&fit=crop" loading="lazy" alt="">
-      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
-    </div>
+    <!-- Populated by Supabase -->
+    <div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--mu);font-family:'Cormorant Garamond',serif;font-style:italic;">Loading gallery...</div>
   </div>
 
   <div class="lm rv">
-    <p>Showing 25 of 300+ photoshoots</p>
+    <p id="gallery-count">Loading photoshoots...</p>
     <button class="btn-g" onclick="toast2('More photos coming — DM for full archive access ✦')">Load More</button>
   </div>
 </section>
@@ -637,10 +376,10 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
     <div class="c-ey rv">Open for Bookings &amp; Brand Deals</div>
     <h2 class="c-h rv">LET'S<br><b>CREATE</b></h2>
     <p class="c-s rv">Have a vision? Let's make it iconic. Available for brand campaigns, editorial shoots, social content &amp; long-term partnerships.</p>
-    <form class="cf rv" onsubmit="doSubmit(event)">
-      <div class="fg"><label>Your Name</label><input type="text" placeholder="Jane Smith" required></div>
-      <div class="fg"><label>Brand / Agency</label><input type="text" placeholder="Acme Studios"></div>
-      <div class="fg"><label>Email</label><input type="email" placeholder="hello@brand.com" required></div>
+    <form class="cf rv" id="enquiry-form" onsubmit="doSubmit(event)">
+      <div class="fg"><label>Your Name</label><input id="enquiry-name" type="text" placeholder="Jane Smith" required></div>
+      <div class="fg"><label>Brand / Agency</label><input id="enquiry-subject" type="text" placeholder="Acme Studios"></div>
+      <div class="fg"><label>Email</label><input id="enquiry-email" type="email" placeholder="hello@brand.com" required></div>
       <div class="fg"><label>Collab Type</label>
         <select>
           <option value="">Select…</option>
@@ -655,8 +394,8 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
           <option>Other</option>
         </select>
       </div>
-      <div class="fg fu"><label>About your project</label><textarea placeholder="Describe your brand, goals, timeline, budget…" required></textarea></div>
-      <div class="fu"><button type="submit" class="btn-p" style="width:100%;text-align:center;padding:15px;font-size:.72rem;">Send Enquiry ✦</button></div>
+      <div class="fg fu"><label>About your project</label><textarea id="enquiry-message" placeholder="Describe your brand, goals, timeline, budget…" required></textarea></div>
+      <div class="fu"><button type="submit" class="btn-p" id="enquiry-btn" style="width:100%;text-align:center;padding:15px;font-size:.72rem;">Send Enquiry ✦</button></div>
     </form>
   </div>
 </section>
@@ -694,7 +433,7 @@ footer{background:var(--void);border-top:1px solid var(--b);padding:38px 18px 22
 <div class="toast" id="toastEl"></div>
 
 <script>
-/* ── Cursor (no blend mode) ── */
+/* ── Cursor ── */
 const CUR=document.getElementById('cur'),CURR=document.getElementById('cur-r');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{
@@ -711,19 +450,17 @@ document.querySelectorAll('a,button,.gi,.st').forEach(el=>{
   el.addEventListener('mouseleave',()=>CURR.classList.remove('hov'));
 });
 
-/* ── Scroll progress bar ── */
+/* ── Scroll ── */
 window.addEventListener('scroll',()=>{
   const s=document.documentElement,pct=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
   document.getElementById('prog').style.width=pct+'%';
   document.getElementById('nav').classList.toggle('stuck',window.scrollY>60);
 });
 
-/* ── Parallax on hero image ── */
+/* ── Parallax ── */
 const hImg=document.getElementById('hero-img');
 window.addEventListener('scroll',()=>{
-  if(window.scrollY<window.innerHeight){
-    hImg.style.transform=`translateY(${window.scrollY*.35}px)`;
-  }
+  if(window.scrollY<window.innerHeight){hImg.style.transform=`translateY(${window.scrollY*.35}px)`;}
 },{passive:true});
 
 /* ── Mobile menu ── */
@@ -739,18 +476,12 @@ document.querySelectorAll('.rv').forEach(r=>ro.observe(r));
 function animCount(el){
   const target=+el.dataset.target,suffix=el.dataset.suffix||'';
   let cur=0;const step=target/50;
-  const t=setInterval(()=>{
-    cur=Math.min(cur+step,target);
-    el.textContent=Math.floor(cur)+suffix;
-    if(cur>=target)clearInterval(t);
-  },28);
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=Math.floor(cur)+suffix;if(cur>=target)clearInterval(t);},28);
 }
 const cro=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting&&e.target.dataset.target){animCount(e.target);cro.unobserve(e.target);}});
 },{threshold:.5});
 document.querySelectorAll('[data-target]').forEach(el=>cro.observe(el));
-
-/* Hero stat counters (trigger immediately after load) */
 setTimeout(()=>{
   document.querySelectorAll('.hs-n[data-target]').forEach(el=>{
     const target=+el.dataset.target,suffix='+';
@@ -790,103 +521,121 @@ function toast2(m){
   setTimeout(()=>t.classList.remove('on'),3600);
 }
 
-/* ── Form ── */
-function doSubmit(e){
+/* ── Contact form — saves to Supabase ── */
+async function doSubmit(e) {
   e.preventDefault();
-  const b=e.target.querySelector('button[type=submit]');
-  b.textContent='Enquiry Sent ✓';b.style.background='#183018';b.style.color='#70b070';b.disabled=true;
-  toast2('Thank you! Erynn will be in touch shortly.');
-}
-</script>
-</body>
-</html>
+  const btn = document.getElementById('enquiry-btn');
+  const name = document.getElementById('enquiry-name').value.trim();
+  const email = document.getElementById('enquiry-email').value.trim();
+  const subject = document.getElementById('enquiry-subject').value.trim();
+  const message = document.getElementById('enquiry-message').value.trim();
 
-<script>
-// ─────────────────────────────────────────────────────────────
-//  Dynamic image loader — reads images.json and populates
-//  the hero, featured strip, and gallery automatically
-//  Falls back gracefully if images.json doesn't exist yet
-// ─────────────────────────────────────────────────────────────
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
 
-(async () => {
-  let data;
   try {
-    const res = await fetch("./images.json");
-    if (!res.ok) throw new Error("images.json not found");
-    data = await res.json();
-  } catch (e) {
-    // images.json doesn't exist yet — stay with placeholder UI
-    console.log("images.json not found — showing placeholder UI");
+    await window.erynnDB.submitEnquiry(name, email, subject, message);
+    btn.textContent = 'Enquiry Sent ✓';
+    btn.style.background = '#183018';
+    btn.style.color = '#70b070';
+    toast2('Thank you! Erynn will be in touch shortly.');
+    e.target.reset();
+  } catch(err) {
+    btn.textContent = 'Send Enquiry ✦';
+    btn.disabled = false;
+    toast2('Something went wrong. Please try again.');
+    console.error(err);
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   LOAD GALLERY FROM SUPABASE
+   ══════════════════════════════════════════════════ */
+(async () => {
+  // Wait for supabase-client.js to be ready
+  if (!window.erynnDB) {
+    console.error('supabase-client.js not loaded');
     return;
   }
 
-  // ── Swap hero image ──────────────────────────────────────
+  const data = await window.erynnDB.loadSiteData();
+  if (!data) return;
+
+  // ── Hero image ──
   if (data.hero && data.hero.url) {
-    const heroImg = document.getElementById("hero-img");
+    const heroImg = document.getElementById('hero-img');
     if (heroImg) {
       heroImg.src = data.hero.url;
-      heroImg.alt = data.hero.title;
+      heroImg.alt = data.hero.title || 'Erynn Vale';
     }
   }
 
-  // ── Populate featured strip ──────────────────────────────
-  const strip = document.getElementById("strip");
+  // ── Featured strip ──
+  const strip = document.getElementById('strip');
   if (strip && data.featured && data.featured.length > 0) {
     strip.innerHTML = data.featured.map(img => `
       <div class="st" onclick="openLB('${img.url}')">
-        <img src="${img.url}" alt="${img.title}" loading="lazy">
-        <div class="st-cap"><span>${img.title}</span></div>
+        <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
+        <div class="st-cap"><span>${img.title || ''}</span></div>
       </div>
-    `).join("");
+    `).join('');
   }
 
-  // ── Populate gallery grid ────────────────────────────────
-  const grid = document.getElementById("gg");
+  // ── Gallery grid ──
+  const grid = document.getElementById('gg');
   if (grid && data.gallery) {
-    const allGallery = [
-      ...data.gallery.fitness,
-      ...data.gallery.luxury,
-      ...data.gallery.editorial,
-      ...data.gallery.travel,
-      ...data.gallery.baddie
-    ];
+    const allCovers = Object.values(data.gallery).flat();
+    allCovers.sort((a, b) => (b.impact || 0) - (a.impact || 0));
 
-    // Sort by impact score desc for "All" view
-    allGallery.sort((a, b) => b.impact - a.impact);
+    if (allCovers.length === 0) {
+      grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--mu);font-family:\'Cormorant Garamond\',serif;font-style:italic;">No photos yet.</div>';
+      return;
+    }
 
-    // Group by shootId — only show cover images on homepage
-    const shootMap = {};
-    allGallery.forEach(img => {
-      const sid = img.shootId || img.category + '-general';
-      if (!shootMap[sid]) shootMap[sid] = [];
-      shootMap[sid].push(img);
+    const galleryHTML = allCovers.map(img => {
+      const cat = img.category || 'editorial';
+      const shootId = img.shootId || img.shoot_id || '';
+      const shots = img.shotCount || 1;
+      const catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
+      return `
+        <div class="gi" data-cat="${cat}" onclick="window.location.href='image.html?shoot=${encodeURIComponent(shootId)}'">
+          <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
+          <div class="gio">
+            <span class="gc">${catLabel} &nbsp;·&nbsp; ${shots} shot${shots !== 1 ? 's' : ''}</span>
+            <span class="gl">${img.title || ''}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Premium locked cards
+    const premiumHTML = `
+      <div class="gi prem" data-cat="premium">
+        <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=500&h=740&q=80&auto=format&fit=crop" loading="lazy" alt="">
+        <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
+      </div>
+      <div class="gi prem" data-cat="premium">
+        <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
+        <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
+      </div>
+    `;
+
+    grid.innerHTML = galleryHTML + premiumHTML;
+
+    // Update count
+    const countEl = document.getElementById('gallery-count');
+    if (countEl) countEl.textContent = `Showing ${allCovers.length} photoshoots`;
+
+    // Re-attach cursor hover to new cards
+    document.querySelectorAll('.gi,.st').forEach(el=>{
+      el.addEventListener('mouseenter',()=>CURR.classList.add('hov'));
+      el.addEventListener('mouseleave',()=>CURR.classList.remove('hov'));
     });
 
-    // Sort each shoot by impact, highest = cover
-    Object.values(shootMap).forEach(imgs => imgs.sort((a,b) => b.impact - a.impact));
-
-    // Build gallery from cover images only
-    const coverImages = Object.entries(shootMap).map(([sid, imgs]) => ({...imgs[0], shootId: sid, shootCount: imgs.length}));
-    coverImages.sort((a,b) => b.impact - a.impact);
-
-    const galleryHTML = coverImages.map(img => `
-      <div class="gi" data-cat="${img.category}" onclick="window.location.href='image.html?shoot='+encodeURIComponent('${img.shootId || img.category}')">
-        <img src="${img.url}" alt="${img.title}" loading="lazy">
-        <div class="gio">
-          <span class="gc">${img.category.charAt(0).toUpperCase() + img.category.slice(1)} &nbsp;·&nbsp; ${img.shootCount} shots</span>
-          <span class="gl">${img.title}</span>
-        </div>
-      </div>
-    `).join("");
-
-    // Preserve premium locked cards, replace everything else
-    const premiumCards = grid.querySelectorAll(".gi.prem");
-    grid.innerHTML = galleryHTML;
-    premiumCards.forEach(card => grid.appendChild(card));
-
-    // Update the count shown
-    const countEl = document.querySelector(".lm p");
-    if (countEl) countEl.textContent = `Showing ${allGallery.length} photoshoots`;
+    // Re-attach scroll reveal to new elements
+    document.querySelectorAll('.rv').forEach(r=>ro.observe(r));
   }
 })();
 </script>
+</body>
+</html>
