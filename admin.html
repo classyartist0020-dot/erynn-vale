@@ -17,7 +17,7 @@
 }
 html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-weight:300;}
 
-/* ── LOGIN ── */
+/* LOGIN */
 #login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;}
 .login-box{width:100%;max-width:400px;border:1px solid var(--b);padding:44px 36px;background:var(--void);}
 .login-logo{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.3em;margin-bottom:4px;}
@@ -31,10 +31,8 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .login-btn:disabled{opacity:.5;cursor:not-allowed;}
 .login-err{color:var(--red);font-size:.78rem;margin-top:10px;display:none;}
 
-/* ── APP SHELL ── */
+/* APP */
 #app{display:none;min-height:100vh;flex-direction:column;}
-
-/* top bar */
 #topbar{background:var(--void);border-bottom:1px solid var(--b);padding:0 28px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
 .tb-logo{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.28em;}
 .tb-logo span{color:var(--gold);}
@@ -44,52 +42,50 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .tb-logout{background:none;border:1px solid var(--b);color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;cursor:pointer;transition:all .3s;}
 .tb-logout:hover{border-color:var(--red);color:var(--red);}
 
-/* tabs */
-#tabs{display:flex;border-bottom:1px solid var(--b);background:var(--void);padding:0 28px;}
-.tab{background:none;border:none;color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;padding:14px 20px;cursor:pointer;border-bottom:2px solid transparent;transition:all .3s;margin-bottom:-1px;}
+/* TABS */
+#tabs{display:flex;border-bottom:1px solid var(--b);background:var(--void);padding:0 28px;overflow-x:auto;scrollbar-width:none;}
+#tabs::-webkit-scrollbar{display:none;}
+.tab{background:none;border:none;color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;padding:14px 20px;cursor:pointer;border-bottom:2px solid transparent;transition:all .3s;margin-bottom:-1px;white-space:nowrap;flex-shrink:0;}
 .tab:hover{color:var(--w);}
 .tab.on{color:var(--gold);border-bottom-color:var(--gold);}
 
-/* content */
-#content{flex:1;padding:28px;max-width:1200px;width:100%;margin:0 auto;}
+#content{flex:1;padding:28px;max-width:1300px;width:100%;margin:0 auto;}
 
-/* ── STATS ROW ── */
+/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
 @media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);}}
 .stat-card{background:var(--card);border:1px solid var(--b);padding:20px 18px;}
 .stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
 .stat-l{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mu);margin-top:4px;}
 
-/* ── SECTION HEADER ── */
-.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+/* SECTION */
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.1em;}
 .sec-count{font-size:.6rem;color:var(--mu);letter-spacing:.2em;}
 
-/* ── TABLE ── */
+/* TABLE */
 .tbl{width:100%;border-collapse:collapse;}
 .tbl th{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mu);padding:10px 14px;text-align:left;border-bottom:1px solid var(--b);white-space:nowrap;}
 .tbl td{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.82rem;vertical-align:top;}
 .tbl tr:hover td{background:rgba(255,255,255,.02);}
 .tbl-name{color:var(--w);font-weight:400;}
 .tbl-email{color:var(--mu);font-size:.75rem;}
-.tbl-msg{color:var(--dim);font-size:.78rem;max-width:320px;line-height:1.5;}
+.tbl-msg{color:var(--dim);font-size:.78rem;max-width:300px;line-height:1.5;}
 .tbl-time{color:var(--mu);font-size:.7rem;white-space:nowrap;}
 
-/* badges */
 .badge{display:inline-block;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
 .badge-new{background:rgba(200,167,107,.15);border:1px solid rgba(200,167,107,.3);color:var(--gold);}
 .badge-read{background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--mu);}
 .badge-replied{background:rgba(152,195,121,.1);border:1px solid rgba(152,195,121,.3);color:var(--green);}
 .badge-cat{background:rgba(200,167,107,.1);border:1px solid rgba(200,167,107,.25);color:var(--gold2);}
 
-/* action buttons */
 .act-btn{background:none;border:1px solid var(--b);color:var(--mu);font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;cursor:pointer;transition:all .25s;}
 .act-btn:hover{border-color:var(--gold);color:var(--gold);}
 .act-btn.danger:hover{border-color:var(--red);color:var(--red);}
 .act-btn.primary{border-color:var(--gold);color:var(--gold);}
 .act-btn.primary:hover{background:var(--gold);color:var(--blk);}
 
-/* ── SHOOTS GRID ── */
+/* SHOOTS GRID */
 .shoots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
 .shoot-card{background:var(--card);border:1px solid var(--b);overflow:hidden;transition:border-color .3s;}
 .shoot-card:hover{border-color:rgba(200,167,107,.3);}
@@ -98,25 +94,76 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .shoot-info{padding:12px;}
 .shoot-name{font-size:.82rem;color:var(--w);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .shoot-meta{font-size:.62rem;color:var(--mu);display:flex;justify-content:space-between;align-items:center;}
-.shoot-actions{display:flex;gap:6px;margin-top:10px;}
+.shoot-actions{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;}
 
-/* ── EDIT MODAL ── */
-#modal-overlay{position:fixed;inset:0;background:rgba(5,4,9,.92);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
-#modal-overlay.open{display:flex;}
-.modal{background:var(--void);border:1px solid var(--b);width:100%;max-width:480px;padding:32px;}
-.modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.1em;margin-bottom:24px;}
-.modal-label{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:6px;margin-top:14px;}
-.modal-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:11px 13px;outline:none;transition:border-color .3s;}
-.modal-input:focus{border-color:var(--gold);}
-.modal-select{width:100%;background:var(--card);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:11px 13px;outline:none;appearance:none;}
-.modal-select option{background:var(--card);}
-.modal-btns{display:flex;gap:10px;margin-top:22px;}
-.modal-save{flex:1;background:var(--gold);color:var(--blk);border:none;padding:12px;font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
-.modal-save:hover{background:var(--gold2);}
-.modal-cancel{background:none;border:1px solid var(--b);color:var(--mu);padding:12px 20px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
-.modal-cancel:hover{border-color:var(--w);color:var(--w);}
+/* ══════════════════════════════════════
+   GROUP BUILDER — the main new feature
+══════════════════════════════════════ */
+#tab-group{display:none;}
+.group-layout{display:grid;grid-template-columns:1fr 340px;gap:0;min-height:calc(100vh - 160px);border:1px solid var(--b);}
+@media(max-width:900px){.group-layout{grid-template-columns:1fr;}}
 
-/* ── UPLOAD ── */
+/* Left: image picker */
+.gp-left{border-right:1px solid var(--b);display:flex;flex-direction:column;}
+.gp-toolbar{padding:14px 16px;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--void);}
+.gp-search{flex:1;min-width:160px;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.82rem;padding:8px 12px;outline:none;transition:border-color .3s;}
+.gp-search:focus{border-color:var(--gold);}
+.gp-filter{background:var(--card);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.75rem;padding:8px 12px;outline:none;appearance:none;cursor:pointer;}
+.gp-filter option{background:var(--card);}
+.gp-sel-count{font-size:.65rem;color:var(--gold);letter-spacing:.1em;white-space:nowrap;}
+
+.gp-grid{flex:1;overflow-y:auto;padding:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;align-content:start;}
+.gp-img{position:relative;aspect-ratio:.75;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:border-color .2s;background:var(--card);}
+.gp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .2s;}
+.gp-img:hover img{opacity:.85;}
+.gp-img.selected{border-color:var(--gold);}
+.gp-img.selected::after{content:'✓';position:absolute;top:5px;right:5px;width:20px;height:20px;background:var(--gold);color:var(--blk);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.gp-img.in-group{opacity:.35;cursor:not-allowed;}
+.gp-img-cat{position:absolute;bottom:4px;left:4px;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(9,8,13,.7);color:var(--gold);padding:2px 6px;}
+
+/* Right: group builder panel */
+.gp-right{background:var(--void);display:flex;flex-direction:column;}
+.gp-panel-head{padding:16px;border-bottom:1px solid var(--b);}
+.gp-panel-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;margin-bottom:2px;}
+.gp-panel-sub{font-size:.62rem;color:var(--mu);}
+
+.gp-fields{padding:14px 16px;border-bottom:1px solid var(--b);display:flex;flex-direction:column;gap:10px;}
+.gp-field label{font-size:.54rem;letter-spacing:.26em;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:5px;}
+.gp-field input,.gp-field select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.82rem;padding:9px 11px;outline:none;transition:border-color .3s;appearance:none;}
+.gp-field input:focus,.gp-field select:focus{border-color:var(--gold);}
+.gp-field select option{background:var(--card);}
+
+/* Draggable image list inside panel */
+.gp-list-wrap{flex:1;overflow-y:auto;padding:10px;}
+.gp-list-empty{padding:30px 16px;text-align:center;color:var(--mu);font-size:.78rem;line-height:1.7;border:1px dashed rgba(255,255,255,.08);margin:4px;}
+.gp-list{display:flex;flex-direction:column;gap:6px;}
+.gp-item{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--b);padding:7px 8px;cursor:grab;transition:border-color .2s;position:relative;}
+.gp-item:active{cursor:grabbing;}
+.gp-item.drag-over{border-color:var(--gold);background:rgba(200,167,107,.07);}
+.gp-item.dragging{opacity:.4;}
+.gp-item-thumb{width:40px;height:40px;object-fit:cover;flex-shrink:0;border:1px solid var(--b);}
+.gp-item-info{flex:1;min-width:0;}
+.gp-item-title{font-size:.72rem;color:var(--w);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.gp-item-sub{font-size:.6rem;color:var(--mu);}
+.gp-item-caption{width:100%;background:transparent;border:none;border-bottom:1px solid var(--b);color:var(--dim);font-family:'DM Sans',sans-serif;font-size:.68rem;padding:3px 0;outline:none;margin-top:3px;}
+.gp-item-caption:focus{border-color:var(--gold);}
+.gp-item-caption::placeholder{color:var(--mu);}
+.gp-item-actions{display:flex;gap:4px;flex-shrink:0;}
+.gp-cover-btn{background:none;border:1px solid var(--b);color:var(--mu);font-size:.55rem;padding:3px 7px;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;white-space:nowrap;}
+.gp-cover-btn:hover{border-color:var(--gold);color:var(--gold);}
+.gp-cover-btn.is-cover{background:var(--gold);border-color:var(--gold);color:var(--blk);}
+.gp-remove-btn{background:none;border:1px solid transparent;color:var(--mu);font-size:.9rem;width:22px;height:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .2s;flex-shrink:0;}
+.gp-remove-btn:hover{color:var(--red);}
+.drag-handle{color:var(--mu);font-size:.9rem;cursor:grab;padding:0 2px;flex-shrink:0;user-select:none;}
+
+.gp-footer{padding:12px 16px;border-top:1px solid var(--b);display:flex;gap:8px;}
+.gp-save{flex:1;background:var(--gold);color:var(--blk);border:none;padding:12px;font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.gp-save:hover{background:var(--gold2);}
+.gp-save:disabled{opacity:.5;cursor:not-allowed;}
+.gp-clear{background:none;border:1px solid var(--b);color:var(--mu);padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.gp-clear:hover{border-color:var(--w);color:var(--w);}
+
+/* UPLOAD */
 .upload-area{border:1px dashed rgba(200,167,107,.3);padding:48px 28px;text-align:center;cursor:pointer;transition:all .3s;background:rgba(200,167,107,.02);}
 .upload-area:hover,.upload-area.drag{border-color:var(--gold);background:rgba(200,167,107,.05);}
 .upload-icon{font-size:2.2rem;margin-bottom:12px;}
@@ -125,38 +172,34 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 #file-input{display:none;}
 .upload-form{display:none;margin-top:24px;}
 .upload-form.show{display:block;}
-.upload-previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-bottom:18px;}
+.upload-previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:18px;}
 .upload-prev{position:relative;aspect-ratio:1;overflow:hidden;border:1px solid var(--b);}
 .upload-prev img{width:100%;height:100%;object-fit:cover;}
 .upload-prev-x{position:absolute;top:3px;right:3px;width:20px;height:20px;background:rgba(9,8,13,.85);border:none;color:var(--red);font-size:.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
 @media(max-width:500px){.upload-grid{grid-template-columns:1fr;}}
 .upload-label{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:6px;}
-.upload-input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.85rem;padding:10px 12px;outline:none;transition:border-color .3s;}
+.upload-input,.upload-select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.85rem;padding:10px 12px;outline:none;transition:border-color .3s;appearance:none;}
 .upload-input:focus{border-color:var(--gold);}
-.upload-select{width:100%;background:var(--card);border:1px solid var(--b);color:var(--w);font-family:'DM Sans',sans-serif;font-size:.85rem;padding:10px 12px;outline:none;appearance:none;}
+.upload-select{background:var(--card);}
 .upload-select option{background:var(--card);}
 .upload-btn{background:var(--gold);color:var(--blk);border:none;padding:13px 28px;font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
 .upload-btn:hover{background:var(--gold2);}
 .upload-btn:disabled{opacity:.5;cursor:not-allowed;}
-.upload-progress{margin-top:14px;display:none;}
-.upload-progress.show{display:block;}
+.prog-wrap{margin-top:14px;display:none;}
+.prog-wrap.show{display:block;}
 .prog-bar{height:3px;background:var(--b);border-radius:2px;overflow:hidden;margin-bottom:8px;}
 .prog-fill{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:2px;transition:width .4s;}
 .prog-label{font-size:.68rem;color:var(--mu);}
 
-/* ── EMPTY STATE ── */
+/* EMPTY / TOAST */
 .empty{text-align:center;padding:60px 20px;color:var(--mu);}
 .empty-i{font-size:2rem;margin-bottom:12px;}
 .empty-t{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;margin-bottom:6px;color:var(--w);}
 .empty-s{font-size:.78rem;line-height:1.7;}
-
-/* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--gold);color:var(--blk);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;padding:11px 20px;opacity:0;transition:all .4s;z-index:999;pointer-events:none;transform:translateY(10px);}
 .toast.on{opacity:1;transform:translateY(0);}
 .toast.err{background:var(--red);color:var(--w);}
-
-/* scrollbar */
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--b);border-radius:3px;}
@@ -164,7 +207,7 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 </head>
 <body>
 
-<!-- ═══ LOGIN ═══ -->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">ERYNN<span>.</span>VALE</div>
@@ -178,9 +221,8 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
   </div>
 </div>
 
-<!-- ═══ APP ═══ -->
+<!-- APP -->
 <div id="app">
-
   <div id="topbar">
     <div style="display:flex;align-items:center;">
       <div class="tb-logo">ERYNN<span>.</span>VALE</div>
@@ -193,23 +235,23 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
   </div>
 
   <div id="tabs">
-    <button class="tab on" onclick="showTab('overview')">Overview</button>
-    <button class="tab" onclick="showTab('enquiries')">Enquiries <span id="enq-badge"></span></button>
-    <button class="tab" onclick="showTab('shoots')">Shoots & Images</button>
-    <button class="tab" onclick="showTab('upload')">Upload</button>
+    <button class="tab on"  onclick="showTab('overview')">Overview</button>
+    <button class="tab"     onclick="showTab('enquiries')">Enquiries <span id="enq-badge"></span></button>
+    <button class="tab"     onclick="showTab('shoots')">Shoots</button>
+    <button class="tab"     onclick="showTab('group')">✦ Group Images</button>
+    <button class="tab"     onclick="showTab('upload')">Upload</button>
   </div>
 
   <div id="content">
 
     <!-- OVERVIEW -->
     <div id="tab-overview">
-      <div class="stats-row" id="stats-row">
+      <div class="stats-row">
         <div class="stat-card"><div class="stat-n" id="s-images">—</div><div class="stat-l">Total Images</div></div>
         <div class="stat-card"><div class="stat-n" id="s-shoots">—</div><div class="stat-l">Shoots</div></div>
         <div class="stat-card"><div class="stat-n" id="s-enq">—</div><div class="stat-l">Enquiries</div></div>
         <div class="stat-card"><div class="stat-n" id="s-unread">—</div><div class="stat-l">Unread</div></div>
       </div>
-
       <div class="sec-head"><div class="sec-title">Recent Enquiries</div><button class="act-btn primary" onclick="showTab('enquiries')">View All</button></div>
       <div id="recent-enq-list"></div>
     </div>
@@ -222,18 +264,13 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
       </div>
       <div style="overflow-x:auto;">
         <table class="tbl">
-          <thead>
-            <tr>
-              <th>Status</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th><th>Actions</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Status</th><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th><th>Actions</th></tr></thead>
           <tbody id="enq-tbody"></tbody>
         </table>
       </div>
       <div class="empty" id="enq-empty" style="display:none;">
-        <div class="empty-i">📬</div>
-        <div class="empty-t">No Enquiries Yet</div>
-        <div class="empty-s">Booking requests submitted via the contact form will appear here.</div>
+        <div class="empty-i">📬</div><div class="empty-t">No Enquiries Yet</div>
+        <div class="empty-s">Booking requests will appear here.</div>
       </div>
     </div>
 
@@ -245,32 +282,103 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
       </div>
       <div class="shoots-grid" id="shoots-grid"></div>
       <div class="empty" id="shoots-empty" style="display:none;">
-        <div class="empty-i">🖼️</div>
-        <div class="empty-t">No Shoots Found</div>
-        <div class="empty-s">Upload images and they'll appear here grouped by shoot.</div>
+        <div class="empty-i">🖼️</div><div class="empty-t">No Shoots Yet</div>
+        <div class="empty-s">Use the Group Images tab to create your first shoot.</div>
+      </div>
+    </div>
+
+    <!-- GROUP IMAGES — the new visual tool -->
+    <div id="tab-group">
+      <div class="sec-head" style="margin-bottom:14px;">
+        <div>
+          <div class="sec-title">Group Images</div>
+          <div style="font-size:.68rem;color:var(--mu);margin-top:2px;">Select images from the grid → arrange them → name the group → save</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <select id="gp-edit-select" class="gp-filter" onchange="loadExistingGroup(this.value)" style="min-width:180px;">
+            <option value="">— Edit existing group —</option>
+          </select>
+          <button class="act-btn" onclick="resetGroupBuilder()">New Group</button>
+        </div>
+      </div>
+
+      <div class="group-layout">
+        <!-- LEFT: image grid picker -->
+        <div class="gp-left">
+          <div class="gp-toolbar">
+            <input class="gp-search" id="gp-search" placeholder="Search images..." oninput="filterGpImages()">
+            <select class="gp-filter" id="gp-cat-filter" onchange="filterGpImages()">
+              <option value="">All categories</option>
+              <option value="fitness">Fitness</option>
+              <option value="luxury">Luxury</option>
+              <option value="editorial">Editorial</option>
+              <option value="travel">Travel</option>
+              <option value="baddie">Baddie</option>
+              <option value="premium">Premium</option>
+            </select>
+            <select class="gp-filter" id="gp-group-filter" onchange="filterGpImages()">
+              <option value="">All images</option>
+              <option value="ungrouped">Ungrouped only</option>
+            </select>
+            <span class="gp-sel-count" id="gp-sel-count"></span>
+          </div>
+          <div class="gp-grid" id="gp-grid">
+            <div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--mu);font-size:.78rem;">Loading images...</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: group builder panel -->
+        <div class="gp-right">
+          <div class="gp-panel-head">
+            <div class="gp-panel-title">Group Builder</div>
+            <div class="gp-panel-sub" id="gp-panel-sub">Select images from the left to add them here</div>
+          </div>
+
+          <div class="gp-fields">
+            <div class="gp-field">
+              <label>Group Name</label>
+              <input id="gp-name" type="text" placeholder="e.g. Golden Hour at Malibu">
+            </div>
+            <div class="gp-field">
+              <label>Category</label>
+              <select id="gp-cat">
+                <option value="editorial">Editorial</option>
+                <option value="luxury">Luxury</option>
+                <option value="fitness">Fitness</option>
+                <option value="travel">Travel</option>
+                <option value="baddie">Baddie</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="gp-list-wrap">
+            <div class="gp-list-empty" id="gp-list-empty">
+              No images selected yet.<br>Click images on the left to add them.
+            </div>
+            <div class="gp-list" id="gp-list"></div>
+          </div>
+
+          <div class="gp-footer">
+            <button class="gp-clear" onclick="resetGroupBuilder()">Clear</button>
+            <button class="gp-save" id="gp-save-btn" onclick="saveGroup()">Save Group ✦</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- UPLOAD -->
     <div id="tab-upload" style="display:none;">
       <div class="sec-head"><div class="sec-title">Upload Images</div></div>
-
       <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()">
         <div class="upload-icon">📸</div>
         <div class="upload-title">Drop Images Here</div>
-        <div class="upload-sub">Click to browse or drag & drop<br>JPG, PNG, WEBP — max 10MB each<br>Select multiple files at once</div>
+        <div class="upload-sub">Click to browse or drag & drop<br>JPG, PNG, WEBP — multiple files at once</div>
       </div>
       <input type="file" id="file-input" multiple accept="image/*" onchange="handleFiles(this.files)">
-
       <div class="upload-form" id="upload-form">
         <div class="upload-previews" id="upload-previews"></div>
-
         <div class="upload-grid">
-          <div>
-            <label class="upload-label">Shoot ID (slug)</label>
-            <input class="upload-input" id="u-shoot-id" placeholder="e.g. beach-sunset-2024" list="shoot-ids-list">
-            <datalist id="shoot-ids-list"></datalist>
-          </div>
           <div>
             <label class="upload-label">Category</label>
             <select class="upload-select" id="u-category">
@@ -283,53 +391,22 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
             </select>
           </div>
           <div>
-            <label class="upload-label">Shoot Title</label>
-            <input class="upload-input" id="u-title" placeholder="e.g. Golden Hour at Malibu">
-          </div>
-          <div>
             <label class="upload-label">Impact (1-10)</label>
             <input class="upload-input" id="u-impact" type="number" min="1" max="10" value="7">
           </div>
         </div>
-
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
           <button class="upload-btn" id="upload-btn" onclick="doUpload()">Upload Images ✦</button>
           <button class="act-btn" onclick="clearUpload()">Clear</button>
           <span style="font-size:.7rem;color:var(--mu);" id="upload-file-count"></span>
         </div>
-
-        <div class="upload-progress" id="upload-progress">
+        <div class="prog-wrap" id="upload-progress">
           <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
           <div class="prog-label" id="prog-label">Uploading...</div>
         </div>
       </div>
     </div>
 
-  </div><!-- /content -->
-</div><!-- /app -->
-
-<!-- EDIT MODAL -->
-<div id="modal-overlay">
-  <div class="modal">
-    <div class="modal-title">Edit Shoot</div>
-    <input type="hidden" id="edit-shoot-id">
-    <label class="modal-label">Shoot Title</label>
-    <input class="modal-input" id="edit-title" type="text" placeholder="e.g. Golden Hour at Malibu">
-    <label class="modal-label">Category</label>
-    <select class="modal-select" id="edit-category">
-      <option value="editorial">Editorial</option>
-      <option value="luxury">Luxury</option>
-      <option value="fitness">Fitness</option>
-      <option value="travel">Travel</option>
-      <option value="baddie">Baddie</option>
-      <option value="premium">Premium</option>
-    </select>
-    <label class="modal-label">Shoot ID (slug)</label>
-    <input class="modal-input" id="edit-slug" type="text" placeholder="e.g. beach-sunset">
-    <div class="modal-btns">
-      <button class="modal-cancel" onclick="closeModal()">Cancel</button>
-      <button class="modal-save" onclick="saveEdit()">Save Changes</button>
-    </div>
   </div>
 </div>
 
@@ -338,433 +415,477 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 <script>
 const SUPABASE_URL = "https://jndrwouruspnxhafpxun.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpuZHJ3b3VydXNwbnhoYWZweHVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyMDAyNjEsImV4cCI6MjA4OTc3NjI2MX0.k0R_D0X9l22UTrcUl-1Xoatvptg9dM72rz4xzR5cBmA";
-
 const { createClient } = supabase;
 const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 let currentUser = null;
 let uploadFiles = [];
 
-// ══════════════════════════════
-//  AUTH
-// ══════════════════════════════
-async function checkAuth() {
-  const { data: { session } } = await db.auth.getSession();
-  if (session) {
-    currentUser = session.user;
-    showApp();
-  }
-}
+// all images loaded for group builder
+let allImages = [];
+let groupItems = []; // {id, url, title, caption, is_cover, sort_order}
+let editingShootId = null; // null = new group
+let dragSrcIdx = null;
 
-async function doLogin() {
+// ══════════════════
+//  AUTH
+// ══════════════════
+async function checkAuth(){
+  const { data:{ session } } = await db.auth.getSession();
+  if(session){ currentUser = session.user; showApp(); }
+}
+async function doLogin(){
   const email = document.getElementById('l-email').value.trim();
   const pass  = document.getElementById('l-pass').value;
   const btn   = document.getElementById('l-btn');
   const err   = document.getElementById('l-err');
-
-  if (!email || !pass) { showLoginErr('Please enter email and password'); return; }
-
-  btn.disabled = true;
-  btn.textContent = 'Signing in...';
-  err.style.display = 'none';
-
+  if(!email||!pass){ showLoginErr('Please enter email and password'); return; }
+  btn.disabled=true; btn.textContent='Signing in...'; err.style.display='none';
   const { data, error } = await db.auth.signInWithPassword({ email, password: pass });
-
-  if (error) {
-    showLoginErr('Invalid email or password');
-    btn.disabled = false;
-    btn.textContent = 'Sign In';
-    return;
-  }
-
-  currentUser = data.user;
-  showApp();
+  if(error){ showLoginErr('Invalid email or password'); btn.disabled=false; btn.textContent='Sign In'; return; }
+  currentUser = data.user; showApp();
 }
-
-async function doLogout() {
+async function doLogout(){
   await db.auth.signOut();
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  currentUser = null;
+  document.getElementById('app').style.display='none';
+  document.getElementById('login-screen').style.display='flex';
+  currentUser=null;
 }
+function showLoginErr(msg){ const e=document.getElementById('l-err'); e.textContent=msg; e.style.display='block'; }
+document.getElementById('l-pass').addEventListener('keydown',function(e){ if(e.key==='Enter') doLogin(); });
 
-function showLoginErr(msg) {
-  const err = document.getElementById('l-err');
-  err.textContent = msg;
-  err.style.display = 'block';
-}
-
-document.getElementById('l-pass').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') doLogin();
-});
-
-// ══════════════════════════════
+// ══════════════════
 //  APP
-// ══════════════════════════════
-function showApp() {
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('app').style.display = 'flex';
+// ══════════════════
+function showApp(){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='flex';
   document.getElementById('tb-user').textContent = currentUser.email;
   loadOverview();
-  loadShootIds();
 }
 
-// ══════════════════════════════
+// ══════════════════
 //  TABS
-// ══════════════════════════════
-function showTab(name) {
-  document.querySelectorAll('.tab').forEach(function(t, i) {
-    const names = ['overview','enquiries','shoots','upload'];
-    t.classList.toggle('on', names[i] === name);
-  });
-  ['overview','enquiries','shoots','upload'].forEach(function(n) {
-    document.getElementById('tab-'+n).style.display = n === name ? 'block' : 'none';
-  });
-  if (name === 'enquiries') loadEnquiries();
-  if (name === 'shoots')    loadShoots();
-  if (name === 'upload')    loadShootIds();
+// ══════════════════
+function showTab(name){
+  const names=['overview','enquiries','shoots','group','upload'];
+  document.querySelectorAll('.tab').forEach(function(t,i){ t.classList.toggle('on', names[i]===name); });
+  names.forEach(function(n){ document.getElementById('tab-'+n).style.display = n===name ? 'block' : 'none'; });
+  if(name==='enquiries') loadEnquiries();
+  if(name==='shoots')    loadShoots();
+  if(name==='group')     loadGroupBuilder();
 }
 
-// ══════════════════════════════
+// ══════════════════
 //  OVERVIEW
-// ══════════════════════════════
-async function loadOverview() {
+// ══════════════════
+async function loadOverview(){
   const [
-    { count: imgCount },
-    { count: shootCount },
-    { count: enqCount },
-    { count: unreadCount },
-    { data: recentEnq }
+    {count:imgCount},{count:shootCount},{count:enqCount},{count:unreadCount},{data:recentEnq}
   ] = await Promise.all([
-    db.from('images').select('*', { count: 'exact', head: true }),
-    db.from('shoots').select('*', { count: 'exact', head: true }),
-    db.from('enquiries').select('*', { count: 'exact', head: true }),
-    db.from('enquiries').select('*', { count: 'exact', head: true }).eq('is_read', false),
-    db.from('enquiries').select('*').order('created_at', { ascending: false }).limit(5)
+    db.from('images').select('*',{count:'exact',head:true}),
+    db.from('shoots').select('*',{count:'exact',head:true}),
+    db.from('enquiries').select('*',{count:'exact',head:true}),
+    db.from('enquiries').select('*',{count:'exact',head:true}).eq('is_read',false),
+    db.from('enquiries').select('*').order('created_at',{ascending:false}).limit(5)
   ]);
-
-  document.getElementById('s-images').textContent = imgCount || 0;
-  document.getElementById('s-shoots').textContent = shootCount || 0;
-  document.getElementById('s-enq').textContent    = enqCount || 0;
-  document.getElementById('s-unread').textContent = unreadCount || 0;
-
-  if (unreadCount > 0) {
-    document.getElementById('enq-badge').textContent = ' (' + unreadCount + ')';
-  }
-
-  renderRecentEnq(recentEnq || []);
+  document.getElementById('s-images').textContent  = imgCount||0;
+  document.getElementById('s-shoots').textContent  = shootCount||0;
+  document.getElementById('s-enq').textContent     = enqCount||0;
+  document.getElementById('s-unread').textContent  = unreadCount||0;
+  if(unreadCount>0) document.getElementById('enq-badge').textContent=' ('+unreadCount+')';
+  renderRecentEnq(recentEnq||[]);
+}
+function renderRecentEnq(rows){
+  const el=document.getElementById('recent-enq-list');
+  if(!rows.length){ el.innerHTML='<div class="empty"><div class="empty-i">📬</div><div class="empty-t">No Enquiries Yet</div><div class="empty-s">They\'ll show up here when brands submit the contact form.</div></div>'; return; }
+  el.innerHTML='<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Status</th><th>Name</th><th>Email</th><th>Subject</th><th>Date</th></tr></thead><tbody>'+rows.map(function(r){ return enqRow(r,true); }).join('')+'</tbody></table></div>';
 }
 
-function renderRecentEnq(rows) {
-  const el = document.getElementById('recent-enq-list');
-  if (!rows.length) {
-    el.innerHTML = '<div class="empty"><div class="empty-i">📬</div><div class="empty-t">No Enquiries Yet</div><div class="empty-s">They\'ll show up here when brands submit the contact form.</div></div>';
-    return;
-  }
-  el.innerHTML = '<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Status</th><th>Name</th><th>Email</th><th>Subject</th><th>Date</th></tr></thead><tbody>' +
-    rows.map(function(r) { return enqRow(r, true); }).join('') +
-    '</tbody></table></div>';
-}
-
-// ══════════════════════════════
+// ══════════════════
 //  ENQUIRIES
-// ══════════════════════════════
-async function loadEnquiries() {
-  const { data, error } = await db.from('enquiries').select('*').order('created_at', { ascending: false });
-
-  if (error) { showToast('Failed to load enquiries', true); return; }
-
-  const rows = data || [];
-  document.getElementById('enq-count').textContent = rows.length + ' total';
-
-  if (!rows.length) {
-    document.getElementById('enq-tbody').innerHTML = '';
-    document.getElementById('enq-empty').style.display = 'block';
-    return;
-  }
-
-  document.getElementById('enq-empty').style.display = 'none';
-  document.getElementById('enq-tbody').innerHTML = rows.map(function(r) { return enqRow(r, false); }).join('');
+// ══════════════════
+async function loadEnquiries(){
+  const {data,error}=await db.from('enquiries').select('*').order('created_at',{ascending:false});
+  if(error){ showToast('Failed to load enquiries',true); return; }
+  const rows=data||[];
+  document.getElementById('enq-count').textContent=rows.length+' total';
+  if(!rows.length){ document.getElementById('enq-tbody').innerHTML=''; document.getElementById('enq-empty').style.display='block'; return; }
+  document.getElementById('enq-empty').style.display='none';
+  document.getElementById('enq-tbody').innerHTML=rows.map(function(r){ return enqRow(r,false); }).join('');
 }
-
-function enqRow(r, compact) {
-  const status = r.is_replied ? 'replied' : r.is_read ? 'read' : 'new';
-  const badgeCls = status === 'new' ? 'badge-new' : status === 'replied' ? 'badge-replied' : 'badge-read';
-  const date = new Date(r.created_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
-
-  if (compact) {
-    return '<tr><td><span class="badge '+badgeCls+'">'+status+'</span></td><td class="tbl-name">'+esc(r.name)+'</td><td class="tbl-email">'+esc(r.email)+'</td><td class="tbl-email">'+esc(r.subject||'—')+'</td><td class="tbl-time">'+date+'</td></tr>';
-  }
-
-  return '<tr id="enq-'+r.id+'">' +
-    '<td><span class="badge '+badgeCls+'">'+status+'</span></td>' +
-    '<td class="tbl-name">'+esc(r.name)+'</td>' +
-    '<td class="tbl-email">'+esc(r.email)+'</td>' +
-    '<td class="tbl-email">'+esc(r.subject||'—')+'</td>' +
-    '<td class="tbl-msg">'+esc(r.message)+'</td>' +
-    '<td class="tbl-time">'+date+'</td>' +
-    '<td style="white-space:nowrap;display:flex;gap:5px;flex-wrap:wrap;">' +
-      (!r.is_read ? '<button class="act-btn" onclick="markRead('+r.id+')">Mark Read</button>' : '') +
-      (!r.is_replied ? '<button class="act-btn primary" onclick="markReplied('+r.id+')">Mark Replied</button>' : '') +
-      '<button class="act-btn" onclick="copyEmail(\''+esc(r.email)+'\')">Copy Email</button>' +
-    '</td>' +
-    '</tr>';
+function enqRow(r,compact){
+  const status=r.is_replied?'replied':r.is_read?'read':'new';
+  const bc=status==='new'?'badge-new':status==='replied'?'badge-replied':'badge-read';
+  const date=new Date(r.created_at).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+  if(compact) return '<tr><td><span class="badge '+bc+'">'+status+'</span></td><td class="tbl-name">'+esc(r.name)+'</td><td class="tbl-email">'+esc(r.email)+'</td><td class="tbl-email">'+esc(r.subject||'—')+'</td><td class="tbl-time">'+date+'</td></tr>';
+  return '<tr id="enq-'+r.id+'">'
+    +'<td><span class="badge '+bc+'">'+status+'</span></td>'
+    +'<td class="tbl-name">'+esc(r.name)+'</td>'
+    +'<td class="tbl-email">'+esc(r.email)+'</td>'
+    +'<td class="tbl-email">'+esc(r.subject||'—')+'</td>'
+    +'<td class="tbl-msg">'+esc(r.message)+'</td>'
+    +'<td class="tbl-time">'+date+'</td>'
+    +'<td style="white-space:nowrap;display:flex;gap:5px;flex-wrap:wrap;">'
+      +(!r.is_read?'<button class="act-btn" onclick="markRead('+r.id+')">Mark Read</button>':'')
+      +(!r.is_replied?'<button class="act-btn primary" onclick="markReplied('+r.id+')">Mark Replied</button>':'')
+      +'<button class="act-btn" onclick="copyEmail(\''+esc(r.email)+'\')">Copy Email</button>'
+    +'</td></tr>';
 }
+async function markRead(id){ await db.from('enquiries').update({is_read:true}).eq('id',id); loadEnquiries(); showToast('Marked as read'); }
+async function markReplied(id){ await db.from('enquiries').update({is_read:true,is_replied:true}).eq('id',id); loadEnquiries(); showToast('Marked as replied'); }
+function copyEmail(email){ navigator.clipboard.writeText(email).then(function(){ showToast('Email copied: '+email); }); }
 
-async function markRead(id) {
-  await db.from('enquiries').update({ is_read: true }).eq('id', id);
-  loadEnquiries();
-  showToast('Marked as read');
-}
-
-async function markReplied(id) {
-  await db.from('enquiries').update({ is_read: true, is_replied: true }).eq('id', id);
-  loadEnquiries();
-  showToast('Marked as replied');
-}
-
-function copyEmail(email) {
-  navigator.clipboard.writeText(email).then(function() { showToast('Email copied: ' + email); });
-}
-
-// ══════════════════════════════
+// ══════════════════
 //  SHOOTS
-// ══════════════════════════════
-async function loadShoots() {
-  const { data: shoots } = await db.from('shoots').select('*, images(count)').order('created_at', { ascending: false });
-  const rows = shoots || [];
+// ══════════════════
+async function loadShoots(){
+  const {data:shoots}=await db.from('shoots').select('*, images(count)').order('created_at',{ascending:false});
+  const rows=shoots||[];
+  document.getElementById('shoots-count').textContent=rows.length+' shoots';
+  if(!rows.length){ document.getElementById('shoots-grid').innerHTML=''; document.getElementById('shoots-empty').style.display='block'; return; }
+  document.getElementById('shoots-empty').style.display='none';
+  document.getElementById('shoots-grid').innerHTML=rows.map(function(s){
+    const count=s.images&&s.images[0]?s.images[0].count:0;
+    const thumb=s.cover_image_url?'<img class="shoot-thumb" src="'+s.cover_image_url+'" alt="" loading="lazy">':'<div class="shoot-thumb-ph">No Cover</div>';
+    return '<div class="shoot-card">'
+      +thumb
+      +'<div class="shoot-info">'
+        +'<div class="shoot-name">'+esc(s.title||s.id)+'</div>'
+        +'<div class="shoot-meta"><span class="badge badge-cat">'+esc(s.category)+'</span><span style="color:var(--mu);font-size:.65rem;">'+count+' shots</span></div>'
+        +'<div class="shoot-actions">'
+          +'<button class="act-btn primary" onclick="editGroupById(\''+s.id+'\')">Edit Group</button>'
+          +'<button class="act-btn" onclick="window.open(\'image.html?shoot='+encodeURIComponent(s.id)+'\',\'_blank\')">View</button>'
+          +'<button class="act-btn danger" onclick="deleteShoot(\''+s.id+'\')">Delete</button>'
+        +'</div>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+}
+async function deleteShoot(id){
+  if(!confirm('Delete this shoot and remove grouping from all its images? This cannot be undone.')) return;
+  await db.from('images').update({shoot_id:null,is_cover:false,sort_order:0}).eq('shoot_id',id);
+  await db.from('shoots').delete().eq('id',id);
+  showToast('Shoot deleted'); loadShoots();
+}
+function editGroupById(id){
+  showTab('group');
+  setTimeout(function(){
+    document.getElementById('gp-edit-select').value=id;
+    loadExistingGroup(id);
+  },300);
+}
 
-  document.getElementById('shoots-count').textContent = rows.length + ' shoots';
+// ══════════════════════════════════════
+//  GROUP BUILDER
+// ══════════════════════════════════════
+async function loadGroupBuilder(){
+  // Load all images
+  const {data}=await db.from('images').select('*').order('impact',{ascending:false});
+  allImages=data||[];
 
-  if (!rows.length) {
-    document.getElementById('shoots-grid').innerHTML = '';
-    document.getElementById('shoots-empty').style.display = 'block';
+  // Populate edit-existing dropdown
+  const {data:shoots}=await db.from('shoots').select('id,title').order('title');
+  const sel=document.getElementById('gp-edit-select');
+  sel.innerHTML='<option value="">— Edit existing group —</option>'+(shoots||[]).map(function(s){
+    return '<option value="'+s.id+'">'+esc(s.title||s.id)+'</option>';
+  }).join('');
+
+  renderGpGrid();
+}
+
+function renderGpGrid(){
+  const search  = document.getElementById('gp-search').value.toLowerCase();
+  const catF    = document.getElementById('gp-cat-filter').value;
+  const groupF  = document.getElementById('gp-group-filter').value;
+
+  const groupItemIds = groupItems.map(function(g){ return g.id; });
+
+  const filtered = allImages.filter(function(img){
+    if(catF && img.category !== catF) return false;
+    if(groupF === 'ungrouped' && img.shoot_id) return false;
+    if(search && !(img.title||'').toLowerCase().includes(search) && !(img.category||'').toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  const grid = document.getElementById('gp-grid');
+  if(!filtered.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--mu);font-size:.78rem;">No images found</div>';
     return;
   }
 
-  document.getElementById('shoots-empty').style.display = 'none';
-  document.getElementById('shoots-grid').innerHTML = rows.map(function(s) {
-    const count = s.images && s.images[0] ? s.images[0].count : 0;
-    const thumb = s.cover_image_url
-      ? '<img class="shoot-thumb" src="'+s.cover_image_url+'" alt="" loading="lazy">'
-      : '<div class="shoot-thumb-ph">No Cover</div>';
-    return '<div class="shoot-card" id="sc-'+s.id+'">' +
-      thumb +
-      '<div class="shoot-info">' +
-        '<div class="shoot-name">'+esc(s.title||s.id)+'</div>' +
-        '<div class="shoot-meta"><span class="badge badge-cat">'+esc(s.category)+'</span><span style="color:var(--mu);font-size:.65rem;">'+count+' shots</span></div>' +
-        '<div class="shoot-actions">' +
-          '<button class="act-btn primary" onclick="openEdit(\''+s.id+'\',\''+esc(s.title||'')+'\',\''+s.category+'\')">Edit</button>' +
-          '<button class="act-btn" onclick="viewShoot(\''+s.id+'\')">View</button>' +
-          '<button class="act-btn danger" onclick="deleteShoot(\''+s.id+'\')">Delete</button>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
+  grid.innerHTML=filtered.map(function(img){
+    const inGroup  = groupItemIds.includes(img.id);
+    const alreadyGrouped = img.shoot_id && img.shoot_id !== editingShootId;
+    let cls = 'gp-img';
+    if(inGroup) cls += ' selected';
+    if(alreadyGrouped && !inGroup) cls += ' in-group';
+    return '<div class="'+cls+'" id="gpimg-'+img.id+'" onclick="toggleGpImg('+img.id+')" title="'+esc(img.title||img.category||'')+'">'
+      +'<img src="'+img.url+'" alt="" loading="lazy">'
+      +'<div class="gp-img-cat">'+esc(img.category)+(img.shoot_id&&img.shoot_id!==editingShootId?' · grouped':'')+'</div>'
+    +'</div>';
+  }).join('');
+
+  const selCount = document.getElementById('gp-sel-count');
+  selCount.textContent = groupItems.length ? groupItems.length+' selected' : '';
+}
+
+function toggleGpImg(id){
+  const img = allImages.find(function(i){ return i.id===id; });
+  if(!img) return;
+  // Block if in another group (unless we're editing that group)
+  if(img.shoot_id && img.shoot_id !== editingShootId && !groupItems.find(function(g){ return g.id===id; })){
+    showToast('This image is already in another group', true); return;
+  }
+  const existing = groupItems.findIndex(function(g){ return g.id===id; });
+  if(existing >= 0){
+    groupItems.splice(existing, 1);
+  } else {
+    groupItems.push({ id: img.id, url: img.url, title: img.title||'', caption: img.caption||'', is_cover: groupItems.length===0, sort_order: groupItems.length });
+  }
+  renderGpGrid();
+  renderGpList();
+}
+
+function filterGpImages(){ renderGpGrid(); }
+
+function renderGpList(){
+  const list  = document.getElementById('gp-list');
+  const empty = document.getElementById('gp-list-empty');
+  const sub   = document.getElementById('gp-panel-sub');
+
+  if(!groupItems.length){
+    empty.style.display='block'; list.innerHTML='';
+    sub.textContent='Select images from the left to add them here';
+    return;
+  }
+  empty.style.display='none';
+  sub.textContent=groupItems.length+' image'+(groupItems.length!==1?'s':'')+' · drag to reorder';
+
+  list.innerHTML=groupItems.map(function(item,i){
+    return '<div class="gp-item" id="gpi-'+item.id+'" draggable="true" '
+      +'ondragstart="onDragStart(event,'+i+')" ondragover="onDragOver(event,'+i+')" ondragleave="onDragLeave(event)" ondrop="onDrop(event,'+i+')" ondragend="onDragEnd()">'
+      +'<span class="drag-handle">⠿</span>'
+      +'<img class="gp-item-thumb" src="'+item.url+'" alt="">'
+      +'<div class="gp-item-info">'
+        +'<div class="gp-item-title">'+esc(item.title||'Untitled')+'</div>'
+        +'<input class="gp-item-caption" placeholder="Add a caption…" value="'+esc(item.caption||'')+'" oninput="updateCaption('+i+',this.value)">'
+      +'</div>'
+      +'<div class="gp-item-actions">'
+        +'<button class="gp-cover-btn'+(item.is_cover?' is-cover':'')+'" onclick="setCover('+i+')">'+(item.is_cover?'✦ Cover':'Cover')+'</button>'
+        +'<button class="gp-remove-btn" onclick="removeFromGroup('+i+')">✕</button>'
+      +'</div>'
+    +'</div>';
   }).join('');
 }
 
-function viewShoot(id) {
-  window.open('image.html?shoot=' + encodeURIComponent(id), '_blank');
+function updateCaption(idx, val){ if(groupItems[idx]) groupItems[idx].caption = val; }
+
+function setCover(idx){
+  groupItems.forEach(function(g,i){ g.is_cover = i===idx; });
+  renderGpList();
 }
 
-async function deleteShoot(id) {
-  if (!confirm('Delete this shoot and all its images? This cannot be undone.')) return;
-  await db.from('images').delete().eq('shoot_id', id);
-  await db.from('shoots').delete().eq('id', id);
-  showToast('Shoot deleted');
-  loadShoots();
+function removeFromGroup(idx){
+  groupItems.splice(idx, 1);
+  // ensure exactly one cover
+  if(groupItems.length && !groupItems.find(function(g){ return g.is_cover; })) groupItems[0].is_cover=true;
+  renderGpGrid(); renderGpList();
 }
 
-// ══════════════════════════════
-//  EDIT MODAL
-// ══════════════════════════════
-function openEdit(id, title, category) {
-  document.getElementById('edit-shoot-id').value  = id;
-  document.getElementById('edit-title').value     = title;
-  document.getElementById('edit-slug').value      = id;
-  document.getElementById('edit-category').value  = category;
-  document.getElementById('modal-overlay').classList.add('open');
+function resetGroupBuilder(){
+  groupItems = [];
+  editingShootId = null;
+  document.getElementById('gp-name').value = '';
+  document.getElementById('gp-cat').value  = 'editorial';
+  document.getElementById('gp-edit-select').value = '';
+  renderGpGrid(); renderGpList();
 }
 
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-}
+async function loadExistingGroup(shootId){
+  if(!shootId){ resetGroupBuilder(); return; }
+  editingShootId = shootId;
 
-async function saveEdit() {
-  const id       = document.getElementById('edit-shoot-id').value;
-  const title    = document.getElementById('edit-title').value.trim();
-  const category = document.getElementById('edit-category').value;
+  const [{data:shoot},{data:images}] = await Promise.all([
+    db.from('shoots').select('*').eq('id',shootId).single(),
+    db.from('images').select('*').eq('shoot_id',shootId).order('sort_order',{ascending:true})
+  ]);
 
-  if (!title) { showToast('Please enter a title', true); return; }
-
-  // Update shoot title + category
-  await db.from('shoots').update({ title, category }).eq('id', id);
-  // Update all images in this shoot too
-  await db.from('images').update({ category }).eq('shoot_id', id);
-
-  showToast('Shoot updated ✦');
-  closeModal();
-  loadShoots();
-}
-
-document.getElementById('modal-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// ══════════════════════════════
-//  UPLOAD — uses Supabase Storage
-// ══════════════════════════════
-async function loadShootIds() {
-  const { data } = await db.from('shoots').select('id').order('id');
-  const list = document.getElementById('shoot-ids-list');
-  if (list && data) {
-    list.innerHTML = data.map(function(s) { return '<option value="'+s.id+'">'; }).join('');
+  if(shoot){
+    document.getElementById('gp-name').value = shoot.title||'';
+    document.getElementById('gp-cat').value  = shoot.category||'editorial';
   }
+
+  groupItems = (images||[]).map(function(img){
+    return { id:img.id, url:img.url, title:img.title||'', caption:img.caption||'', is_cover:img.is_cover||false, sort_order:img.sort_order||0 };
+  });
+
+  if(groupItems.length && !groupItems.find(function(g){ return g.is_cover; })) groupItems[0].is_cover=true;
+
+  renderGpGrid(); renderGpList();
+  showToast('Group loaded — make your changes then save');
 }
 
-const uploadArea = document.getElementById('upload-area');
-uploadArea.addEventListener('dragover', function(e) { e.preventDefault(); uploadArea.classList.add('drag'); });
-uploadArea.addEventListener('dragleave', function() { uploadArea.classList.remove('drag'); });
-uploadArea.addEventListener('drop', function(e) {
+async function saveGroup(){
+  const name = document.getElementById('gp-name').value.trim();
+  const cat  = document.getElementById('gp-cat').value;
+
+  if(!name){ showToast('Please give this group a name', true); return; }
+  if(!groupItems.length){ showToast('Add at least one image to the group', true); return; }
+
+  const btn = document.getElementById('gp-save-btn');
+  btn.disabled=true; btn.textContent='Saving...';
+
+  try {
+    // Generate shoot ID from name if new group
+    let shootId = editingShootId;
+    if(!shootId){
+      shootId = name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+      // Ensure uniqueness
+      const {data:existing}=await db.from('shoots').select('id').eq('id',shootId).maybeSingle();
+      if(existing) shootId = shootId+'-'+Date.now().toString().slice(-4);
+    }
+
+    const coverItem = groupItems.find(function(g){ return g.is_cover; }) || groupItems[0];
+
+    // Upsert the shoot
+    await db.from('shoots').upsert({
+      id: shootId, title: name, category: cat,
+      cover_image_url: coverItem.url,
+      cover_image_filename: coverItem.title||''
+    }, { onConflict:'id' });
+
+    // If editing, first ungroup all images that are no longer in the group
+    if(editingShootId){
+      const keepIds = groupItems.map(function(g){ return g.id; });
+      const {data:oldImgs}=await db.from('images').select('id').eq('shoot_id',editingShootId);
+      const toUngroup=(oldImgs||[]).filter(function(i){ return !keepIds.includes(i.id); }).map(function(i){ return i.id; });
+      if(toUngroup.length){
+        await db.from('images').update({shoot_id:null,is_cover:false,sort_order:0}).in('id',toUngroup);
+      }
+    }
+
+    // Update all images in the group
+    for(let i=0;i<groupItems.length;i++){
+      const g=groupItems[i];
+      await db.from('images').update({
+        shoot_id: shootId,
+        category: cat,
+        caption:  g.caption||null,
+        is_cover: g.is_cover||false,
+        sort_order: i
+      }).eq('id', g.id);
+    }
+
+    editingShootId = shootId;
+    showToast('Group saved ✦');
+
+    // Refresh allImages and grid
+    const {data:refreshed}=await db.from('images').select('*').order('impact',{ascending:false});
+    allImages=refreshed||[];
+    renderGpGrid();
+
+    // Refresh edit dropdown
+    const {data:shoots}=await db.from('shoots').select('id,title').order('title');
+    const sel=document.getElementById('gp-edit-select');
+    sel.innerHTML='<option value="">— Edit existing group —</option>'+(shoots||[]).map(function(s){
+      return '<option value="'+s.id+'"'+(s.id===shootId?' selected':'')+'>'+esc(s.title||s.id)+'</option>';
+    }).join('');
+
+  } catch(e){
+    console.error(e);
+    showToast('Save failed: '+e.message, true);
+  }
+
+  btn.disabled=false; btn.textContent='Save Group ✦';
+}
+
+// ── Drag & drop reorder in panel ──
+function onDragStart(e,idx){ dragSrcIdx=idx; e.currentTarget.classList.add('dragging'); }
+function onDragOver(e,idx){ e.preventDefault(); if(idx!==dragSrcIdx) e.currentTarget.classList.add('drag-over'); }
+function onDragLeave(e){ e.currentTarget.classList.remove('drag-over'); }
+function onDrop(e,idx){
   e.preventDefault();
-  uploadArea.classList.remove('drag');
-  handleFiles(e.dataTransfer.files);
-});
+  e.currentTarget.classList.remove('drag-over');
+  if(dragSrcIdx===null||dragSrcIdx===idx) return;
+  const moved = groupItems.splice(dragSrcIdx,1)[0];
+  groupItems.splice(idx,0,moved);
+  groupItems.forEach(function(g,i){ g.sort_order=i; });
+  renderGpList();
+}
+function onDragEnd(){ dragSrcIdx=null; document.querySelectorAll('.gp-item').forEach(function(el){ el.classList.remove('dragging','drag-over'); }); }
 
-function handleFiles(files) {
-  uploadFiles = Array.from(files).filter(function(f) { return f.type.startsWith('image/'); });
-  if (!uploadFiles.length) return;
+// ══════════════════
+//  UPLOAD
+// ══════════════════
+const uploadArea = document.getElementById('upload-area');
+uploadArea.addEventListener('dragover',function(e){ e.preventDefault(); uploadArea.classList.add('drag'); });
+uploadArea.addEventListener('dragleave',function(){ uploadArea.classList.remove('drag'); });
+uploadArea.addEventListener('drop',function(e){ e.preventDefault(); uploadArea.classList.remove('drag'); handleFiles(e.dataTransfer.files); });
 
+function handleFiles(files){
+  uploadFiles=Array.from(files).filter(function(f){ return f.type.startsWith('image/'); });
+  if(!uploadFiles.length) return;
   document.getElementById('upload-form').classList.add('show');
-  document.getElementById('upload-file-count').textContent = uploadFiles.length + ' file' + (uploadFiles.length !== 1 ? 's' : '') + ' selected';
-
-  const previews = document.getElementById('upload-previews');
-  previews.innerHTML = '';
-  uploadFiles.forEach(function(f, i) {
-    const div = document.createElement('div');
-    div.className = 'upload-prev';
-    div.id = 'prev-' + i;
-    const img = document.createElement('img');
-    img.src = URL.createObjectURL(f);
-    const x = document.createElement('button');
-    x.className = 'upload-prev-x';
-    x.textContent = '✕';
-    x.onclick = function() { removeFile(i); };
-    div.appendChild(img);
-    div.appendChild(x);
-    previews.appendChild(div);
+  document.getElementById('upload-file-count').textContent=uploadFiles.length+' file'+(uploadFiles.length!==1?'s':'')+' selected';
+  const previews=document.getElementById('upload-previews');
+  previews.innerHTML='';
+  uploadFiles.forEach(function(f,i){
+    const div=document.createElement('div'); div.className='upload-prev'; div.id='prev-'+i;
+    const img=document.createElement('img'); img.src=URL.createObjectURL(f);
+    const x=document.createElement('button'); x.className='upload-prev-x'; x.textContent='✕'; x.onclick=function(){ removeFile(i); };
+    div.appendChild(img); div.appendChild(x); previews.appendChild(div);
   });
 }
-
-function removeFile(idx) {
-  uploadFiles.splice(idx, 1);
-  handleFiles(uploadFiles.length ? uploadFiles : []);
-  if (!uploadFiles.length) clearUpload();
-}
-
-function clearUpload() {
-  uploadFiles = [];
+function removeFile(idx){ uploadFiles.splice(idx,1); if(!uploadFiles.length) clearUpload(); else handleFiles(uploadFiles); }
+function clearUpload(){
+  uploadFiles=[];
   document.getElementById('upload-form').classList.remove('show');
-  document.getElementById('upload-previews').innerHTML = '';
-  document.getElementById('file-input').value = '';
-  document.getElementById('u-shoot-id').value = '';
-  document.getElementById('u-title').value = '';
-  document.getElementById('u-impact').value = '7';
+  document.getElementById('upload-previews').innerHTML='';
+  document.getElementById('file-input').value='';
   document.getElementById('upload-progress').classList.remove('show');
 }
 
-async function doUpload() {
-  const shootId  = document.getElementById('u-shoot-id').value.trim().toLowerCase().replace(/\s+/g,'-');
-  const category = document.getElementById('u-category').value;
-  const title    = document.getElementById('u-title').value.trim();
-  const impact   = parseInt(document.getElementById('u-impact').value) || 7;
-
-  if (!uploadFiles.length) { showToast('No files selected', true); return; }
-  if (!shootId)  { showToast('Please enter a shoot ID', true); return; }
-  if (!title)    { showToast('Please enter a shoot title', true); return; }
-
-  const btn = document.getElementById('upload-btn');
-  btn.disabled = true;
-
-  const prog  = document.getElementById('upload-progress');
-  const fill  = document.getElementById('prog-fill');
-  const label = document.getElementById('prog-label');
-  prog.classList.add('show');
-
-  // Ensure shoot exists
-  await db.from('shoots').upsert({ id: shootId, title, category }, { onConflict: 'id' });
-
-  let done = 0;
-  const inserted = [];
-
-  for (const file of uploadFiles) {
-    const ext = file.name.split('.').pop();
-    const filename = shootId + '-' + Date.now() + '-' + Math.random().toString(36).substr(2,6) + '.' + ext;
-    const path = 'images/' + filename;
-
-    label.textContent = 'Uploading ' + (done+1) + ' of ' + uploadFiles.length + '...';
-
-    // Upload to Supabase Storage bucket "portfolio"
-    const { data: storageData, error: storageErr } = await db.storage
-      .from('portfolio')
-      .upload(path, file, { contentType: file.type, upsert: false });
-
-    if (storageErr) {
-      showToast('Upload failed: ' + storageErr.message, true);
-      continue;
-    }
-
-    // Get public URL
-    const { data: urlData } = db.storage.from('portfolio').getPublicUrl(path);
-    const url = urlData.publicUrl;
-
-    inserted.push({ filename, url, category, title, impact, shoot_id: shootId, is_cover: false, is_featured: false, is_hero: false, is_premium: category === 'premium' });
-
-    done++;
-    fill.style.width = Math.round((done / uploadFiles.length) * 100) + '%';
+async function doUpload(){
+  const category=document.getElementById('u-category').value;
+  const impact=parseInt(document.getElementById('u-impact').value)||7;
+  if(!uploadFiles.length){ showToast('No files selected',true); return; }
+  const btn=document.getElementById('upload-btn'); btn.disabled=true;
+  const prog=document.getElementById('upload-progress'); prog.classList.add('show');
+  const fill=document.getElementById('prog-fill'); const label=document.getElementById('prog-label');
+  let done=0;
+  for(const file of uploadFiles){
+    const ext=file.name.split('.').pop();
+    const filename='img-'+Date.now()+'-'+Math.random().toString(36).substr(2,6)+'.'+ext;
+    const path='images/'+filename;
+    label.textContent='Uploading '+(done+1)+' of '+uploadFiles.length+'...';
+    const {data:storageData,error:storageErr}=await db.storage.from('portfolio').upload(path,file,{contentType:file.type,upsert:false});
+    if(storageErr){ showToast('Upload failed: '+storageErr.message,true); continue; }
+    const {data:urlData}=db.storage.from('portfolio').getPublicUrl(path);
+    await db.from('images').insert({filename,url:urlData.publicUrl,category,impact,is_cover:false,is_featured:false,is_hero:false,is_premium:category==='premium'});
+    done++; fill.style.width=Math.round((done/uploadFiles.length)*100)+'%';
   }
-
-  // Insert all image records
-  if (inserted.length) {
-    await db.from('images').insert(inserted);
-
-    // Set the highest-impact image as cover
-    const { data: shootImgs } = await db.from('images').select('id,impact').eq('shoot_id', shootId).order('impact', { ascending: false }).limit(1);
-    if (shootImgs && shootImgs[0]) {
-      await db.from('images').update({ is_cover: false }).eq('shoot_id', shootId);
-      await db.from('images').update({ is_cover: true }).eq('id', shootImgs[0].id);
-      // Update shoot cover
-      const { data: coverImg } = await db.from('images').select('url').eq('id', shootImgs[0].id).single();
-      if (coverImg) await db.from('shoots').update({ cover_image_url: coverImg.url }).eq('id', shootId);
-    }
-  }
-
-  label.textContent = done + ' image' + (done !== 1 ? 's' : '') + ' uploaded successfully!';
-  showToast(done + ' images uploaded ✦');
-  btn.disabled = false;
-
-  setTimeout(function() { clearUpload(); }, 2000);
+  label.textContent=done+' image'+(done!==1?'s':'')+' uploaded! Go to Group Images to arrange them.';
+  showToast(done+' images uploaded ✦');
+  btn.disabled=false;
+  // Refresh allImages if group tab was visited
+  if(allImages.length){ const {data}=await db.from('images').select('*').order('impact',{ascending:false}); allImages=data||[]; }
+  setTimeout(clearUpload,2500);
 }
 
-// ══════════════════════════════
+// ══════════════════
 //  UTILS
-// ══════════════════════════════
-function showToast(msg, isErr) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast' + (isErr ? ' err' : '');
-  t.classList.add('on');
-  setTimeout(function() { t.classList.remove('on'); }, 3500);
+// ══════════════════
+function showToast(msg,isErr){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast'+(isErr?' err':''); t.classList.add('on');
+  setTimeout(function(){ t.classList.remove('on'); },3500);
 }
-
-function esc(str) {
-  if (!str) return '';
+function esc(str){
+  if(!str) return '';
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
-// ══════════════════════════════
-//  INIT
-// ══════════════════════════════
 checkAuth();
 </script>
 </body>
