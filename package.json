@@ -1,0 +1,19 @@
+{
+  "name": "erynn-vale",
+  "version": "1.0.0",
+  "description": "Erynn Vale model portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "compress": "node compress.js",
+    "scan": "node scan.js",
+    "sort": "node sort.js",
+    "rescan": "node rescan.js"
+
+  },
+  "dependencies": {
+    "sharp": "^0.33.3",
+    "groq-sdk": "^0.3.3",
+    "imagekit": "^5.0.2",
+    "dotenv": "^16.4.5"
+  }
+}

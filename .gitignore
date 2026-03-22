@@ -1,0 +1,16 @@
+# Environment variables — NEVER upload this
+.env
+
+# Node modules — too large for GitHub
+node_modules/
+
+# Your original uncompressed photos — too large for GitHub
+images-original/
+
+# Auto-generated files — created by scripts locally
+progress.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
