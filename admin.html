@@ -193,6 +193,23 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .prog-fill{height:100%;background:linear-gradient(to right,var(--gold),var(--gold2));border-radius:2px;transition:width .4s;}
 .prog-label{font-size:.68rem;color:var(--mu);}
 
+/* HERO PICKER */
+.hero-preview-box{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--b);padding:14px;margin-bottom:28px;}
+.hero-preview-box img{width:140px;height:90px;object-fit:cover;border:1px solid var(--b);flex-shrink:0;}
+.hero-preview-info{flex:1;}
+.hero-preview-title{font-size:.9rem;color:var(--w);margin-bottom:4px;}
+.hero-preview-cat{font-size:.6rem;color:var(--mu);letter-spacing:.18em;text-transform:uppercase;}
+#hero-modal{display:none;position:fixed;inset:0;background:rgba(5,4,9,.96);z-index:600;flex-direction:column;}
+.hero-modal-head{padding:18px 24px;border-bottom:1px solid var(--b);display:flex;align-items:center;justify-content:space-between;background:var(--void);flex-shrink:0;}
+.hero-modal-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.1em;}
+.hero-modal-close{background:none;border:1px solid var(--b);color:var(--mu);padding:7px 16px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;transition:all .3s;}
+.hero-modal-close:hover{border-color:var(--red);color:var(--red);}
+#hero-picker-grid{flex:1;overflow-y:auto;padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;align-content:start;}
+.hero-pick-img{position:relative;aspect-ratio:.75;overflow:hidden;cursor:pointer;border:2px solid var(--b);transition:border-color .2s;}
+.hero-pick-img:hover{border-color:var(--gold);}
+.hero-pick-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-pick-img-cat{position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:rgba(9,8,13,.8);font-size:.55rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+
 /* EMPTY / TOAST */
 .empty{text-align:center;padding:60px 20px;color:var(--mu);}
 .empty-i{font-size:2rem;margin-bottom:12px;}
@@ -253,8 +270,31 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
         <div class="stat-card"><div class="stat-n" id="s-enq">—</div><div class="stat-l">Enquiries</div></div>
         <div class="stat-card"><div class="stat-n" id="s-unread">—</div><div class="stat-l">Unread</div></div>
       </div>
+
+      <div class="sec-head" style="margin-bottom:12px;">
+        <div class="sec-title">Hero Image</div>
+        <button class="act-btn primary" onclick="openHeroPicker()">Change Hero ✦</button>
+      </div>
+      <div class="hero-preview-box" id="hero-preview-box">
+        <img id="hero-thumb" src="" alt="">
+        <div class="hero-preview-info">
+          <div class="hero-preview-title" id="hero-preview-title">Loading...</div>
+          <div class="hero-preview-cat" id="hero-preview-cat"></div>
+          <div style="font-size:.65rem;color:var(--mu);margin-top:8px;">This is the full-screen image visitors see first on the homepage.</div>
+        </div>
+      </div>
+
       <div class="sec-head"><div class="sec-title">Recent Enquiries</div><button class="act-btn primary" onclick="showTab('enquiries')">View All</button></div>
       <div id="recent-enq-list"></div>
+
+      <!-- Hero picker modal -->
+      <div id="hero-modal">
+        <div class="hero-modal-head">
+          <div class="hero-modal-title">Pick Hero Image</div>
+          <button class="hero-modal-close" onclick="closeHeroPicker()">✕ Close</button>
+        </div>
+        <div id="hero-picker-grid"></div>
+      </div>
     </div>
 
     <!-- ENQUIRIES -->
@@ -463,6 +503,7 @@ function showApp(){
   document.getElementById('app').style.display='flex';
   document.getElementById('tb-user').textContent = currentUser.email;
   loadOverview();
+  loadHeroPreview();
 }
 
 // ══════════════════
@@ -885,6 +926,56 @@ function showToast(msg,isErr){
 function esc(str){
   if(!str) return '';
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ══════════════════
+//  HERO PICKER
+// ══════════════════
+async function loadHeroPreview(){
+  const {data} = await db.from('images').select('*').eq('is_hero',true).limit(1).maybeSingle();
+  const thumb = document.getElementById('hero-thumb');
+  const title = document.getElementById('hero-preview-title');
+  const cat   = document.getElementById('hero-preview-cat');
+  if(data){
+    thumb.src = data.url;
+    thumb.style.display = 'block';
+    title.textContent = data.title || 'Untitled';
+    cat.textContent   = data.category || '';
+  } else {
+    thumb.style.display = 'none';
+    title.textContent = 'No hero image set — click Change Hero to pick one';
+    cat.textContent   = '';
+  }
+}
+
+async function openHeroPicker(){
+  const modal = document.getElementById('hero-modal');
+  modal.style.display = 'flex';
+  const grid = document.getElementById('hero-picker-grid');
+  grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--mu);font-size:.78rem;">Loading your images...</div>';
+  const {data} = await db.from('images').select('*').order('impact',{ascending:false});
+  if(!data||!data.length){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--mu);">No images found.</div>';
+    return;
+  }
+  grid.innerHTML = data.map(function(img){
+    return '<div class="hero-pick-img" onclick="setHero('+img.id+')" title="'+esc(img.title||img.category||'')+'">'
+      +'<img src="'+img.url+'" alt="" loading="lazy">'
+      +'<div class="hero-pick-img-cat">'+esc(img.category||'')+(img.is_hero?' · Current hero':' ')+'</div>'
+    +'</div>';
+  }).join('');
+}
+
+function closeHeroPicker(){
+  document.getElementById('hero-modal').style.display = 'none';
+}
+
+async function setHero(id){
+  await db.from('images').update({is_hero:false}).eq('is_hero',true);
+  await db.from('images').update({is_hero:true}).eq('id',id);
+  closeHeroPicker();
+  await loadHeroPreview();
+  showToast('Hero image updated ✦');
 }
 
 checkAuth();
