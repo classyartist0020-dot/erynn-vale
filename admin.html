@@ -122,7 +122,8 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .gp-img-cat{position:absolute;bottom:4px;left:4px;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(9,8,13,.7);color:var(--gold);padding:2px 6px;}
 
 /* Right: group builder panel */
-.gp-right{background:var(--void);display:flex;flex-direction:column;}
+.gp-right{background:var(--void);display:flex;flex-direction:column;position:sticky;top:88px;height:calc(100vh - 88px);overflow-y:auto;}
+@media(max-width:900px){.gp-right{position:relative;top:0;height:auto;max-height:80vh;}}
 .gp-panel-head{padding:16px;border-bottom:1px solid var(--b);}
 .gp-panel-title{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;margin-bottom:2px;}
 .gp-panel-sub{font-size:.62rem;color:var(--mu);}
@@ -156,11 +157,11 @@ html,body{height:100%;background:var(--blk);color:var(--w);font-family:'DM Sans'
 .gp-remove-btn:hover{color:var(--red);}
 .drag-handle{color:var(--mu);font-size:.9rem;cursor:grab;padding:0 2px;flex-shrink:0;user-select:none;}
 
-.gp-footer{padding:12px 16px;border-top:1px solid var(--b);display:flex;gap:8px;}
-.gp-save{flex:1;background:var(--gold);color:var(--blk);border:none;padding:12px;font-family:'DM Sans',sans-serif;font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.gp-footer{padding:14px 16px;border-top:2px solid var(--gold);display:flex;gap:8px;position:sticky;bottom:0;background:var(--void);z-index:10;box-shadow:0 -8px 24px rgba(9,8,13,.8);}
+.gp-save{flex:1;background:var(--gold);color:var(--blk);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
 .gp-save:hover{background:var(--gold2);}
 .gp-save:disabled{opacity:.5;cursor:not-allowed;}
-.gp-clear{background:none;border:1px solid var(--b);color:var(--mu);padding:12px 16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.gp-clear{background:none;border:1px solid var(--b);color:var(--mu);padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
 .gp-clear:hover{border-color:var(--w);color:var(--w);}
 
 /* UPLOAD */
