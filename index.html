@@ -127,7 +127,7 @@ body{background:var(--blk);color:var(--w);font-family:'DM Sans',sans-serif;font-
 @media(max-width:900px){.gg{columns:3;}}
 @media(max-width:560px){.gg{columns:2;column-gap:6px;}}
 .gi{break-inside:avoid;margin-bottom:7px;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(--b);display:block;}
-.gi img{width:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.25,.46,.45,.94);}
+.gi img{width:100%;display:block;object-fit:cover;transition:transform .55s cubic-bezier(.25,.46,.45,.94), opacity .12s ease;}
 .gi:hover img{transform:scale(1.07);}
 .gio{position:absolute;inset:0;background:linear-gradient(to top,rgba(9,8,13,.88) 0%,transparent 52%);opacity:0;transition:opacity .32s;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 11px;}
 .gi:hover .gio{opacity:1;}
@@ -552,28 +552,31 @@ async function doSubmit(e) {
    LOAD GALLERY FROM SUPABASE
    ══════════════════════════════════════════════════ */
 (async () => {
-  // Wait for supabase-client.js to be ready
-  if (!window.erynnDB) {
-    console.error('supabase-client.js not loaded');
-    return;
-  }
+  if (!window.erynnDB) { console.error('supabase-client.js not loaded'); return; }
 
-  const data = await window.erynnDB.loadSiteData();
-  if (!data) return;
+  const db = window.erynnDB.db;
+
+  // Fetch hero, covers, and ALL shoot images in parallel
+  const [
+    { data: heroData },
+    { data: coverImages },
+    { data: allShootImages }
+  ] = await Promise.all([
+    db.from('images').select('*').eq('is_hero', true).limit(1).maybeSingle(),
+    db.from('images').select('*, shoots(id,title,category)').eq('is_cover', true).order('impact', { ascending: false }),
+    db.from('images').select('shoot_id, url').not('shoot_id', 'is', null).order('sort_order', { ascending: true })
+  ]);
 
   // ── Hero image ──
-  if (data.hero && data.hero.url) {
+  if (heroData && heroData.url) {
     const heroImg = document.getElementById('hero-img');
-    if (heroImg) {
-      heroImg.src = data.hero.url;
-      heroImg.alt = data.hero.title || 'Erynn Vale';
-    }
+    if (heroImg) { heroImg.src = heroData.url; heroImg.alt = heroData.title || 'Erynn Vale'; }
   }
 
-  // ── Featured strip ──
+  // ── Featured strip — top 8 covers ──
   const strip = document.getElementById('strip');
-  if (strip && data.featured && data.featured.length > 0) {
-    strip.innerHTML = data.featured.map(img => `
+  if (strip && coverImages && coverImages.length > 0) {
+    strip.innerHTML = coverImages.slice(0, 8).map(img => `
       <div class="st" onclick="openLB('${img.url}')">
         <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
         <div class="st-cap"><span>${img.title || ''}</span></div>
@@ -581,60 +584,116 @@ async function doSubmit(e) {
     `).join('');
   }
 
+  // ── Build shoot image map for hover slideshow ──
+  // { shoot_id: [url1, url2, url3, ...] }
+  const shootUrlMap = {};
+  (allShootImages || []).forEach(img => {
+    if (!shootUrlMap[img.shoot_id]) shootUrlMap[img.shoot_id] = [];
+    shootUrlMap[img.shoot_id].push(img.url);
+  });
+
+  // Count images per shoot
+  const shootCountMap = {};
+  Object.keys(shootUrlMap).forEach(sid => { shootCountMap[sid] = shootUrlMap[sid].length; });
+
   // ── Gallery grid ──
   const grid = document.getElementById('gg');
-  if (grid && data.gallery) {
-    const allCovers = Object.values(data.gallery).flat();
-    allCovers.sort((a, b) => (b.impact || 0) - (a.impact || 0));
+  if (!grid || !coverImages || !coverImages.length) {
+    if (grid) grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--mu);font-family:\'Cormorant Garamond\',serif;font-style:italic;">No photos yet.</div>';
+    return;
+  }
 
-    if (allCovers.length === 0) {
-      grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--mu);font-family:\'Cormorant Garamond\',serif;font-style:italic;">No photos yet.</div>';
-      return;
-    }
-
-    const galleryHTML = allCovers.map(img => {
-      const cat = img.category || 'editorial';
-      const shootId = img.shootId || img.shoot_id || '';
-      const shots = img.shotCount || 1;
-      const catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
-      return `
-        <div class="gi" data-cat="${cat}" onclick="window.location.href='image.html?shoot=${encodeURIComponent(shootId)}'">
-          <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
-          <div class="gio">
-            <span class="gc">${catLabel} &nbsp;·&nbsp; ${shots} shot${shots !== 1 ? 's' : ''}</span>
-            <span class="gl">${img.title || ''}</span>
-          </div>
-        </div>
-      `;
-    }).join('');
-
-    // Premium locked cards
-    const premiumHTML = `
-      <div class="gi prem" data-cat="premium">
-        <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=500&h=740&q=80&auto=format&fit=crop" loading="lazy" alt="">
-        <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
+  const galleryHTML = coverImages.map(img => {
+    const cat      = img.category || 'editorial';
+    const shootId  = img.shoot_id || '';
+    const shots    = shootCountMap[shootId] || 1;
+    const catLabel = cat.charAt(0).toUpperCase() + cat.slice(1);
+    // Embed all shoot URLs as JSON in a data attribute for the slideshow
+    const urls     = JSON.stringify(shootUrlMap[shootId] || [img.url]);
+    return `<div class="gi" data-cat="${cat}" data-shoot="${encodeURIComponent(shootId)}" data-urls='${urls}'>
+      <img src="${img.url}" alt="${img.title || ''}" loading="lazy">
+      <div class="gio">
+        <span class="gc">${catLabel} &nbsp;·&nbsp; ${shots} shot${shots !== 1 ? 's' : ''}</span>
+        <span class="gl">${img.title || ''}</span>
       </div>
-      <div class="gi prem" data-cat="premium">
-        <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
-        <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
-      </div>
-    `;
+    </div>`;
+  }).join('');
 
-    grid.innerHTML = galleryHTML + premiumHTML;
+  // Premium locked cards
+  const premiumHTML = `
+    <div class="gi prem" data-cat="premium">
+      <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=500&h=740&q=80&auto=format&fit=crop" loading="lazy" alt="">
+      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
+    </div>
+    <div class="gi prem" data-cat="premium">
+      <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=820&q=80&auto=format&fit=crop" loading="lazy" alt="">
+      <div class="glk"><div class="glk-i">🔒</div><div class="glk-t">Premium</div><div class="glk-s">Members Only</div><button class="glk-btn" onclick="event.stopPropagation();unlk()">Unlock Access</button></div>
+    </div>`;
 
-    // Update count
-    const countEl = document.getElementById('gallery-count');
-    if (countEl) countEl.textContent = `Showing ${allCovers.length} photoshoots`;
+  grid.innerHTML = galleryHTML + premiumHTML;
 
-    // Re-attach cursor hover to new cards
-    document.querySelectorAll('.gi,.st').forEach(el=>{
-      el.addEventListener('mouseenter',()=>CURR.classList.add('hov'));
-      el.addEventListener('mouseleave',()=>CURR.classList.remove('hov'));
+  // Update count
+  const countEl = document.getElementById('gallery-count');
+  if (countEl) countEl.textContent = `Showing ${coverImages.length} photoshoots`;
+
+  // ── Wire up each gallery card ──
+  document.querySelectorAll('.gi:not(.prem)').forEach(card => {
+    const imgEl   = card.querySelector('img');
+    const shootId = decodeURIComponent(card.dataset.shoot || '');
+    let urls      = [];
+    try { urls = JSON.parse(card.dataset.urls || '[]'); } catch(e) {}
+    const coverUrl = imgEl ? imgEl.src : '';
+
+    // Click → go to shoot page
+    card.addEventListener('click', () => {
+      if (shootId) window.location.href = 'image.html?shoot=' + encodeURIComponent(shootId);
     });
 
-    // Re-attach scroll reveal to new elements
-    document.querySelectorAll('.rv').forEach(r=>ro.observe(r));
-  }
+    // Hover slideshow — only if shoot has more than 1 image
+    if (urls.length > 1 && imgEl) {
+      let idx = 0;
+      let timer = null;
+
+      card.addEventListener('mouseenter', () => {
+        CURR.classList.add('hov');
+        idx = 0;
+        timer = setInterval(() => {
+          idx = (idx + 1) % urls.length;
+          // Crossfade: briefly fade out, swap src, fade back in
+          imgEl.style.opacity = '0.6';
+          setTimeout(() => {
+            imgEl.src = urls[idx];
+            imgEl.style.opacity = '1';
+          }, 120);
+        }, 900); // slide every 900ms
+      });
+
+      card.addEventListener('mouseleave', () => {
+        CURR.classList.remove('hov');
+        clearInterval(timer);
+        timer = null;
+        // Reset to cover image with smooth fade
+        imgEl.style.opacity = '0.6';
+        setTimeout(() => {
+          imgEl.src = coverUrl;
+          imgEl.style.opacity = '1';
+        }, 120);
+      });
+    } else {
+      // Single image cards — just cursor hover
+      card.addEventListener('mouseenter', () => CURR.classList.add('hov'));
+      card.addEventListener('mouseleave', () => CURR.classList.remove('hov'));
+    }
+  });
+
+  // Premium cards cursor
+  document.querySelectorAll('.gi.prem,.st').forEach(el => {
+    el.addEventListener('mouseenter', () => CURR.classList.add('hov'));
+    el.addEventListener('mouseleave', () => CURR.classList.remove('hov'));
+  });
+
+  // Scroll reveal
+  document.querySelectorAll('.rv').forEach(r => ro.observe(r));
 })();
 </script>
 </body>
